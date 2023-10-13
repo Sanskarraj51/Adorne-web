@@ -98,3 +98,10 @@ button {
 .footer-hiring-btn2 img {
     max-width: 28px !important;
 }
+
+@media (max-width:675px){
+  .footer-hiring-btn2 img {
+    max-width: 24px !important;
+}
+
+}
