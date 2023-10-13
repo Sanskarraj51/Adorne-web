@@ -11,9 +11,22 @@ const FooterContent = () => {
     <footer style={{ marginTop: '-2px' }}>
       {/*  */}
 
-      <a class='footer-hiring-btn' target='_blank' href='https://wa.me/+918709125157'>
-        <IconButton sx={{ bgcolor: '#0cc144',borderRadius:"4px" }}>
+      <a class='footer-hiring-btn' target='_blank' href='https://wa.me/+31633386607'>
+        <IconButton sx={{ bgcolor: '#0cc144', borderRadius: '4px' }}>
           <Icon color='white' icon='mdi:whatsapp' />
+        </IconButton>
+      </a>
+      <a class='footer-hiring-btn2' target='_blank' href='https://www.instagram.com/contact_adorne/'>
+        <IconButton
+          sx={{
+            bgcolor: 'white',
+            borderRadius: '4px',
+
+            boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
+          }}
+        >
+          {/* <Icon color='white' icon='mdi:instagram' /> */}
+          <img alt='' src='/images/instagram.png' />
         </IconButton>
       </a>
       <div className='footer-section'>
@@ -39,7 +52,7 @@ const FooterContent = () => {
                         <Icon icon='mdi:place' />
                       </span>
                     </span>
-                    <figure>2972 Westheimer Rd. Santa Ana, Illinois </figure>
+                    <figure>Amsterdam( The Netherlands ) </figure>
                   </li>
 
                   <li>
@@ -49,7 +62,8 @@ const FooterContent = () => {
                         <Icon icon='mdi:phone' />
                       </span>
                     </span>
-                    <figure>(800) 468-4332</figure>
+                    <figure>+31 68 730 8126</figure>
+                    <figure>+31 68 785 7915</figure>
                   </li>
 
                   <li>
@@ -59,7 +73,7 @@ const FooterContent = () => {
                         <Icon icon='mdi:email' />
                       </span>
                     </span>
-                    <figure>hello@techtrox.com</figure>
+                    <figure>contactadorne@gmail.com</figure>
                   </li>
                 </ul>
               </div>
