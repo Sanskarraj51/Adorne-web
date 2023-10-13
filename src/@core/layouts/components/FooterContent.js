@@ -10,13 +10,14 @@ const FooterContent = () => {
   return (
     <footer style={{ marginTop: '-2px' }}>
       {/*  */}
+<div className='footer-hiring-btn' >
 
-      <a class='footer-hiring-btn' target='_blank' href='https://wa.me/+31633386607'>
+      <a target='_blank' href='https://wa.me/+31633386607'>
         <IconButton sx={{ bgcolor: '#0cc144', borderRadius: '4px' }}>
           <Icon color='white' icon='mdi:whatsapp' />
         </IconButton>
       </a>
-      <a class='footer-hiring-btn2' target='_blank' href='https://www.instagram.com/contact_adorne/'>
+      <a  className='footer-hiring-btn2' target='_blank' href='https://www.instagram.com/contact_adorne/'>
         <IconButton
           sx={{
             bgcolor: 'white',
@@ -25,10 +26,10 @@ const FooterContent = () => {
             boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
           }}
         >
-          {/* <Icon color='white' icon='mdi:instagram' /> */}
           <img alt='' src='/images/instagram.png' />
         </IconButton>
       </a>
+</div>
       <div className='footer-section'>
         <div className='container'>
           <div className='row'>

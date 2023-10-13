@@ -25,11 +25,13 @@ const BlogCard = ({ item , mediaUrl  })=>{
     const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "blog_card",
-        onClick: ()=>router.push(`/blogs/${item?.id}`),
+        onClick: ()=>{
+            return router.push(`/blogs/${item === null || item === void 0 ? void 0 : item.id}`);
+        },
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                 loading: "lazy",
-                src: item?.postImage ? `${mediaUrl}${item?.postImage}` : "/images/latest-blog-1.png",
+                src: (item === null || item === void 0 ? void 0 : item.postImage) ? `${mediaUrl}${item === null || item === void 0 ? void 0 : item.postImage}` : "/images/latest-blog-1.png",
                 className: "img-fluid",
                 alt: ""
             }),
@@ -48,12 +50,12 @@ const BlogCard = ({ item , mediaUrl  })=>{
                                     children: [
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                             className: "date",
-                                            children: moment__WEBPACK_IMPORTED_MODULE_1___default()(item?.createdAt).format("DD")
+                                            children: moment__WEBPACK_IMPORTED_MODULE_1___default()(item === null || item === void 0 ? void 0 : item.createdAt).format("DD")
                                         }),
                                         " ",
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                             className: "month",
-                                            children: moment__WEBPACK_IMPORTED_MODULE_1___default()(item?.createdAt).format("MMM")
+                                            children: moment__WEBPACK_IMPORTED_MODULE_1___default()(item === null || item === void 0 ? void 0 : item.createdAt).format("MMM")
                                         })
                                     ]
                                 })
@@ -63,12 +65,12 @@ const BlogCard = ({ item , mediaUrl  })=>{
                             children: [
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                     href: "blog-detail.html",
-                                    children: item?.title
+                                    children: item === null || item === void 0 ? void 0 : item.title
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
                                     // className='text-line-2 text-eclipse '
                                     dangerouslySetInnerHTML: {
-                                        __html: item?.post
+                                        __html: item === null || item === void 0 ? void 0 : item.post
                                     }
                                 })
                             ]

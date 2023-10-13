@@ -74,28 +74,16 @@ button {
 }
 
 .footer-hiring-btn {
-  -moz-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
   right: 1px;
   position: fixed;
   top: 45%;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-.footer-hiring-btn2{
-  -moz-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  right: 1px;
-  position: fixed;
-  top: 51%;
-  z-index: 1000;
-}
-.footer-hiring-btn2 img {
+
+.footer-hiring-btn2  img {
     max-width: 28px !important;
 }
 

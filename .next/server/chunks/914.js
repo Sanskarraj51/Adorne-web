@@ -87,25 +87,25 @@ const AddressCard = ({ item , openEdit , openDelete  })=>{
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: "address_title",
-                children: item?.full_name
+                children: item === null || item === void 0 ? void 0 : item.full_name
             }),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                 className: "address_detail",
                 children: [
-                    item?.address1,
+                    item === null || item === void 0 ? void 0 : item.address1,
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("br", {}),
-                    item?.address2,
+                    item === null || item === void 0 ? void 0 : item.address2,
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("br", {}),
-                    item?.city,
+                    item === null || item === void 0 ? void 0 : item.city,
                     ", ",
-                    item?.state,
+                    item === null || item === void 0 ? void 0 : item.state,
                     " ",
-                    item?.pin,
+                    item === null || item === void 0 ? void 0 : item.pin,
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("br", {}),
-                    item?.country,
+                    item === null || item === void 0 ? void 0 : item.country,
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("br", {}),
                     "Phone number:",
-                    item?.phone
+                    item === null || item === void 0 ? void 0 : item.phone
                 ]
             }),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -219,6 +219,7 @@ const schema = yup__WEBPACK_IMPORTED_MODULE_5__.object().shape({
     email: yup__WEBPACK_IMPORTED_MODULE_5__.string().email().required("email is required")
 });
 const Addresses = ({ place ="profile" , selected , setSelected , closeModal , popup  })=>{
+    var _store_address, _store_address1, _store_address2, _store_address3;
     const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
     const [btnLoading, setBtnLoading] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
     const [dialogStatus, setDialogStatus] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Add");
@@ -254,17 +255,18 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
         setBtnLoading(false);
     };
     async function useAddress() {
+        var _store_address;
         if (!selected) {
             react_hot_toast__WEBPACK_IMPORTED_MODULE_19__["default"].error("Please Select a Address to continue");
             // eslint-disable-next-line
             return;
         }
-        let data = store?.address?.find((item)=>item.id === selected);
+        let data = store === null || store === void 0 ? void 0 : (_store_address = store.address) === null || _store_address === void 0 ? void 0 : _store_address.find((item)=>item.id === selected);
         setBtnLoading(true);
         let url = src_configs_auth__WEBPACK_IMPORTED_MODULE_15__/* ["default"].updateAddress */ .Z.updateAddress;
         let res = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_9__/* .handlePostAPI */ .K2)(url, {
-            user_id: data?.user_id || "",
-            address_id: data?.id || "",
+            user_id: (data === null || data === void 0 ? void 0 : data.user_id) || "",
+            address_id: (data === null || data === void 0 ? void 0 : data.id) || "",
             isDefault: 1 || 0
         }, `Address Updated Successfully`);
         if (res) {
@@ -296,19 +298,19 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
     }
     function openEdit(data) {
         reset({
-            user_id: data?.user_id || "",
-            address_id: data?.id || "",
+            user_id: (data === null || data === void 0 ? void 0 : data.user_id) || "",
+            address_id: (data === null || data === void 0 ? void 0 : data.id) || "",
             isDefault: 1,
-            email: data?.email || "",
-            address1: data?.address1 || "",
-            address2: data?.address2 || "",
-            city: data?.city || "",
-            state: data?.state || "",
-            country: data?.country || "",
-            pin: data?.pin || "",
-            phone: data?.phone || "",
-            full_name: data?.full_name || "",
-            address_type: data?.address_type || "home"
+            email: (data === null || data === void 0 ? void 0 : data.email) || "",
+            address1: (data === null || data === void 0 ? void 0 : data.address1) || "",
+            address2: (data === null || data === void 0 ? void 0 : data.address2) || "",
+            city: (data === null || data === void 0 ? void 0 : data.city) || "",
+            state: (data === null || data === void 0 ? void 0 : data.state) || "",
+            country: (data === null || data === void 0 ? void 0 : data.country) || "",
+            pin: (data === null || data === void 0 ? void 0 : data.pin) || "",
+            phone: (data === null || data === void 0 ? void 0 : data.phone) || "",
+            full_name: (data === null || data === void 0 ? void 0 : data.full_name) || "",
+            address_type: (data === null || data === void 0 ? void 0 : data.address_type) || "home"
         });
         setDialogStatus("Edit");
     }
@@ -323,17 +325,18 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
         setBtnLoading(false);
     }
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        if (store?.address?.length > 0 && place === "billing") {
+        var _store_address;
+        if ((store === null || store === void 0 ? void 0 : (_store_address = store.address) === null || _store_address === void 0 ? void 0 : _store_address.length) > 0 && place === "billing") {
             let addr = {};
-            for (let i of store?.address){
-                if (i?.isDefault === 1) {
+            for (let i of store === null || store === void 0 ? void 0 : store.address){
+                if ((i === null || i === void 0 ? void 0 : i.isDefault) === 1) {
                     addr = i;
                 }
             }
-            setSelected(addr?.id);
+            setSelected(addr === null || addr === void 0 ? void 0 : addr.id);
         }
     }, [
-        store?.address
+        store === null || store === void 0 ? void 0 : store.address
     ]);
     if (loading) {
         return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(src_core_components_spinner__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .Z, {});
@@ -363,9 +366,10 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
                             })
                         ]
                     }),
-                    store?.address?.length > 0 ? store?.address?.map((item, i)=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    (store === null || store === void 0 ? void 0 : (_store_address = store.address) === null || _store_address === void 0 ? void 0 : _store_address.length) > 0 ? store === null || store === void 0 ? void 0 : (_store_address1 = store.address) === null || _store_address1 === void 0 ? void 0 : _store_address1.map((item, i)=>{
+                        /*#__PURE__*/ return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                             onClick: ()=>setSelected(item.id),
-                            className: selected === item?.id ? "save-address-checkout" : "not-selected-checkout",
+                            className: selected === (item === null || item === void 0 ? void 0 : item.id) ? "save-address-checkout" : "not-selected-checkout",
                             children: [
                                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                     className: "saved-address-manual",
@@ -378,7 +382,7 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
                                                     children: [
                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
                                                             className: "form-check-input",
-                                                            checked: selected === item?.id,
+                                                            checked: selected === (item === null || item === void 0 ? void 0 : item.id),
                                                             disabled: true,
                                                             type: "radio",
                                                             name: "flexRadioDefault",
@@ -391,11 +395,11 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
                                                                 textTransform: "capitalize"
                                                             },
                                                             for: "flexRadioDefault1",
-                                                            children: item?.address_type
+                                                            children: item === null || item === void 0 ? void 0 : item.address_type
                                                         })
                                                     ]
                                                 }),
-                                                item?.isDefault === 1 ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_16__.Chip, {
+                                                (item === null || item === void 0 ? void 0 : item.isDefault) === 1 ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_16__.Chip, {
                                                     size: "small",
                                                     sx: {
                                                         ml: 2
@@ -432,22 +436,23 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
                                     className: "saved-manual-address-list",
                                     children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
                                         children: [
-                                            item?.address1,
+                                            item === null || item === void 0 ? void 0 : item.address1,
                                             " ",
-                                            item?.city,
+                                            item === null || item === void 0 ? void 0 : item.city,
                                             ", ",
-                                            item?.state,
+                                            item === null || item === void 0 ? void 0 : item.state,
                                             " ",
-                                            item?.state,
+                                            item === null || item === void 0 ? void 0 : item.state,
                                             ", ",
-                                            item?.country,
+                                            item === null || item === void 0 ? void 0 : item.country,
                                             " M. ",
-                                            item?.phone
+                                            item === null || item === void 0 ? void 0 : item.phone
                                         ]
                                     })
                                 })
                             ]
-                        }, i)) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                        }, i);
+                    }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
                         children: "No Address found"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -501,7 +506,7 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                         className: "address_list",
-                        children: store?.address?.length > 0 ? store?.address?.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_AddressCard__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
+                        children: (store === null || store === void 0 ? void 0 : (_store_address2 = store.address) === null || _store_address2 === void 0 ? void 0 : _store_address2.length) > 0 ? store === null || store === void 0 ? void 0 : (_store_address3 = store.address) === null || _store_address3 === void 0 ? void 0 : _store_address3.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_AddressCard__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
                                 openDelete: openDelete,
                                 openEdit: openEdit,
                                 item: item
