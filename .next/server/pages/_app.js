@@ -295,7 +295,6 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([src_
 
 
 const Navbar = ()=>{
-    var _store_categoryData, _store_categoryData1, _store_cartData, _store_cartData_products, _store_categoryData2, _store_categoryData3, _store_categoryData4, _store_categoryData5;
     const [openDep, setOpenDep] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
     const [query, setQuery] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)("");
     const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
@@ -400,14 +399,12 @@ const Navbar = ()=>{
                                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                                                                     className: "dropdown-menu default-menu",
                                                                     "aria-labelledby": "dropdownMenu1",
-                                                                    children: (store === null || store === void 0 ? void 0 : (_store_categoryData = store.categoryData) === null || _store_categoryData === void 0 ? void 0 : _store_categoryData.length) ? store === null || store === void 0 ? void 0 : (_store_categoryData1 = store.categoryData) === null || _store_categoryData1 === void 0 ? void 0 : _store_categoryData1.map((item, i)=>{
-                                                                        /*#__PURE__*/ return react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                                                    children: store?.categoryData?.length ? store?.categoryData?.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                href: `/search/${item === null || item === void 0 ? void 0 : item.name}`,
-                                                                                children: item === null || item === void 0 ? void 0 : item.name
+                                                                                href: `/search/${item?.name}`,
+                                                                                children: item?.name
                                                                             })
-                                                                        }, i);
-                                                                    }) : null
+                                                                        }, i)) : null
                                                                 })
                                                             ]
                                                         }),
@@ -484,7 +481,7 @@ const Navbar = ()=>{
                                                                         }),
                                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                             className: "cart-counts",
-                                                                            children: (store === null || store === void 0 ? void 0 : (_store_cartData = store.cartData) === null || _store_cartData === void 0 ? void 0 : (_store_cartData_products = _store_cartData.products) === null || _store_cartData_products === void 0 ? void 0 : _store_cartData_products.length) || 0
+                                                                            children: store?.cartData?.products?.length || 0
                                                                         })
                                                                     ]
                                                                 }),
@@ -492,7 +489,7 @@ const Navbar = ()=>{
                                                                     className: "logged_in desktop_shown",
                                                                     children: [
                                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                            href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                                            href: `/profile/${user?.id}`,
                                                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                                                                 src: "/images/profile.svg",
                                                                                 alt: "menu",
@@ -505,7 +502,7 @@ const Navbar = ()=>{
                                                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                                     className: "login-text",
                                                                                     children: user ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                        href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                                                        href: `/profile/${user?.id}`,
                                                                                         children: "Profile"
                                                                                     }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                                                                         href: "/login",
@@ -559,7 +556,7 @@ const Navbar = ()=>{
                                                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                         className: "login-text",
                                                                         children: user ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                            href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                                            href: `/profile/${user?.id}`,
                                                                             children: "Profile"
                                                                         }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                                                             href: "/login",
@@ -631,14 +628,12 @@ const Navbar = ()=>{
                                                                     }),
                                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                                                                         className: "dd-menu",
-                                                                        children: (store === null || store === void 0 ? void 0 : (_store_categoryData2 = store.categoryData) === null || _store_categoryData2 === void 0 ? void 0 : _store_categoryData2.length) ? store === null || store === void 0 ? void 0 : (_store_categoryData3 = store.categoryData) === null || _store_categoryData3 === void 0 ? void 0 : _store_categoryData3.map((item, i)=>{
-                                                                            /*#__PURE__*/ return react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                                                        children: store?.categoryData?.length ? store?.categoryData?.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                    href: `/search/${item === null || item === void 0 ? void 0 : item.name}`,
-                                                                                    children: item === null || item === void 0 ? void 0 : item.name
+                                                                                    href: `/search/${item?.name}`,
+                                                                                    children: item?.name
                                                                                 })
-                                                                            }, i);
-                                                                        }) : null
+                                                                            }, i)) : null
                                                                     })
                                                                 ]
                                                             })
@@ -671,14 +666,12 @@ const Navbar = ()=>{
                                                                     }),
                                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                                                                         className: "dd-menu",
-                                                                        children: (store === null || store === void 0 ? void 0 : (_store_categoryData4 = store.categoryData) === null || _store_categoryData4 === void 0 ? void 0 : _store_categoryData4.length) ? store === null || store === void 0 ? void 0 : (_store_categoryData5 = store.categoryData) === null || _store_categoryData5 === void 0 ? void 0 : _store_categoryData5.map((item, i)=>{
-                                                                            /*#__PURE__*/ return react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                                                        children: store?.categoryData?.length ? store?.categoryData?.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                    href: `/search/${item === null || item === void 0 ? void 0 : item.name}`,
-                                                                                    children: item === null || item === void 0 ? void 0 : item.name
+                                                                                    href: `/search/${item?.name}`,
+                                                                                    children: item?.name
                                                                                 })
-                                                                            }, i);
-                                                                        }) : null
+                                                                            }, i)) : null
                                                                     })
                                                                 ]
                                                             })
@@ -1091,7 +1084,7 @@ const FooterContent = ()=>{
                                                 children: [
                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                         children: user ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                            href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                            href: `/profile/${user?.id}`,
                                                             children: "Profile"
                                                         }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                                             href: "/login",

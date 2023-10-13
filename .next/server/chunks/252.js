@@ -24,15 +24,13 @@ const userData = ()=>{
     return JSON.parse(window.localStorage.getItem("userData"));
 };
 const checkLoginError = (err)=>{
-    var _err_response, _err_response_data;
-    if (((_err_response = err.response) === null || _err_response === void 0 ? void 0 : (_err_response_data = _err_response.data) === null || _err_response_data === void 0 ? void 0 : _err_response_data.message) === "jwt expired") {
+    if (err.response?.data?.message === "jwt expired") {
         react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error("Your token has expired, Kindly login again!");
         localStorage.clear();
         window.location.reload();
         return true;
     } else {
-        var _err_response1, _err_response_data1, _err_response2, _err_response_data2;
-        react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error(typeof (err === null || err === void 0 ? void 0 : (_err_response1 = err.response) === null || _err_response1 === void 0 ? void 0 : (_err_response_data1 = _err_response1.data) === null || _err_response_data1 === void 0 ? void 0 : _err_response_data1.message) === "string" ? err === null || err === void 0 ? void 0 : (_err_response2 = err.response) === null || _err_response2 === void 0 ? void 0 : (_err_response_data2 = _err_response2.data) === null || _err_response_data2 === void 0 ? void 0 : _err_response_data2.message : "Something went wrong on our side");
+        react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error(typeof err?.response?.data?.message === "string" ? err?.response?.data?.message : "Something went wrong on our side");
     }
 };
 function doNothing(e) {
@@ -223,7 +221,7 @@ async function uploadGLobalImage(data) {
     let bodyData = new FormData();
     bodyData.append("imageUrl", data);
     let value = await handlePostAPI(url, bodyData, null);
-    return value === null || value === void 0 ? void 0 : value.baseUrl;
+    return value?.baseUrl;
 }
 const getStates = async (country)=>{
     const response = await handleGetAPI(`/list/states/${country}`);

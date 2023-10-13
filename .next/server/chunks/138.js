@@ -286,14 +286,13 @@ const LoginForm = ({ type , handleClose  })=>{
     const onSubmit = async (data)=>{
         let response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_15__/* .handlePostAPI */ .K2)("/auth", data);
         if (response) {
-            var _response_data;
             window.localStorage.setItem(src_configs_auth__WEBPACK_IMPORTED_MODULE_16__/* ["default"].storageTokenKeyName */ .Z.storageTokenKeyName, response.data.token);
             const returnUrl = router.query.returnUrl;
             setUser({
                 ...response.data
             });
             window.localStorage.setItem("userData", JSON.stringify(response.data));
-            const redirectURL = returnUrl && returnUrl !== "/" ? returnUrl : `/profile/${response === null || response === void 0 ? void 0 : (_response_data = response.data) === null || _response_data === void 0 ? void 0 : _response_data.id}`;
+            const redirectURL = returnUrl && returnUrl !== "/" ? returnUrl : `/profile/${response?.data?.id}`;
             if (type === "login") {
                 router.replace(redirectURL);
             } else {
@@ -303,19 +302,18 @@ const LoginForm = ({ type , handleClose  })=>{
         return;
     };
     const onRegister = async (data)=>{
-        if (!(data === null || data === void 0 ? void 0 : data.mobile)) {
+        if (!data?.mobile) {
             delete data["mobile"];
         }
         let response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_15__/* .handlePostAPI */ .K2)("/register", data);
         if (response) {
-            var _response_data;
             window.localStorage.setItem(src_configs_auth__WEBPACK_IMPORTED_MODULE_16__/* ["default"].storageTokenKeyName */ .Z.storageTokenKeyName, response.data.token);
             const returnUrl = router.query.returnUrl;
             setUser({
                 ...response.data
             });
             window.localStorage.setItem("userData", JSON.stringify(response.data));
-            const redirectURL = returnUrl && returnUrl !== "/" ? returnUrl : `/profile/${response === null || response === void 0 ? void 0 : (_response_data = response.data) === null || _response_data === void 0 ? void 0 : _response_data.id}`;
+            const redirectURL = returnUrl && returnUrl !== "/" ? returnUrl : `/profile/${response?.data?.id}`;
             if (type === "login") {
                 router.replace(redirectURL);
             } else {
