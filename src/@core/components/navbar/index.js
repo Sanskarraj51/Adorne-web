@@ -257,11 +257,11 @@ const Navbar = () => {
                     </li>
                     {/* <!-- <li className="nav-item"></li>>
                     <a className="nav-link" href="#">Faqs</a> */}
-                    <li className='nav-item'>
+                    {/* <li className='nav-item'>
                       <Link className='nav-link' href='/blogs'>
                         Blog
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
 
                   <div className='track-order'>

@@ -2,13 +2,21 @@
 import Link from 'next/link'
 import { useAuth } from 'src/hooks/useAuth'
 import Icon from 'src/@core/components/icon'
+import { IconButton } from '@mui/material'
 
 const FooterContent = () => {
   const { user, logout } = useAuth()
 
   return (
-    <footer style={{marginTop:"-2px"}}>
-      <div  className='footer-section'>
+    <footer style={{ marginTop: '-2px' }}>
+      {/*  */}
+
+      <a class='footer-hiring-btn' target='_blank' href='https://wa.me/+918709125157'>
+        <IconButton sx={{ bgcolor: '#0cc144',borderRadius:"4px" }}>
+          <Icon color='white' icon='mdi:whatsapp' />
+        </IconButton>
+      </a>
+      <div className='footer-section'>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-4 col-md-4 col-sm-12'>

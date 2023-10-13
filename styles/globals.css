@@ -72,3 +72,15 @@ button {
     background: none !important;
 
 }
+
+.footer-hiring-btn {
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  right: 1px;
+  position: fixed;
+  top: 50%;
+  z-index: 1000;
+}
