@@ -1100,10 +1100,11 @@ p.date_container span.month {
 }
 .arrivals_product img{
   max-width: 250px;
-  max-height: 250px;
+  height: 250px;
+  object-fit: contain;
 }
 .arrivals_product.new_product_img img{
-  max-height: 100% !important;
+  /* max-height: 100% !important; */
   max-width: 100% !important;
 }
 

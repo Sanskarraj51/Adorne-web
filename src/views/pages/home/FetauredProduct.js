@@ -1,5 +1,6 @@
 import React from 'react'
 import FeatureProductCard from '../product/FeatureProductCard'
+import Link from 'next/link'
 
 const FetauredProduct = ({ data, mediaUrl }) => {
   return (
@@ -13,9 +14,9 @@ const FetauredProduct = ({ data, mediaUrl }) => {
                 Donec tristique ac bibendum viverra eleifend sit mauris sem cursus. Nunc aliquam nisl nec commodo, velit
                 quam condimentum.
               </p>
-              <a href='product-list.html' class='btn gradiant_button'>
+              <Link href='search/a' class='btn gradiant_button'>
                 Explore All
-              </a>
+              </Link>
             </div>
           </div>
           <div class='col-xl-8 col-lg-12 '>

@@ -15,7 +15,7 @@ const PopularItems = ({ data, mediaUrl }) => {
 
           <div className='col-6'>
             <div className='popular_ite_title'>
-              <Link href='/search/all' className='all_products_link'>
+              <Link href='/search/a' className='all_products_link'>
                 All Products
               </Link>
             </div>

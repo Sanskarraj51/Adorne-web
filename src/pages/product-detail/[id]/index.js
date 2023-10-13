@@ -386,7 +386,7 @@ const ProductDetail = () => {
         <div className='container'>
           <div className='featured-title'>
             <h3>Featured Products</h3>
-            <Link href='/search/all' className='view-all'>
+            <Link href='/search/a' className='view-all'>
               View all
             </Link>
           </div>
