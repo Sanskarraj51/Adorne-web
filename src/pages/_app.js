@@ -51,11 +51,14 @@ import "jquery/dist/jquery.min.js";
 
 // import "node_modules/bootstrap/dist/js/bootstrap.min.js";
 
-
-import '../../styles/common.css'
+import '../../styles/responsive/common.css'
 import '../../styles/var.css'
 import '../../fonts/stylesheet.css'
-import '../../styles/responsive.css'
+import '../../styles/responsive/responsive.css'
+// import '../../styles/common.css'
+// import '../../styles/var.css'
+// import '../../fonts/stylesheet.css'
+// import '../../styles/responsive.css'
 
 
 

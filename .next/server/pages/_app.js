@@ -295,7 +295,6 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([src_
 
 
 const Navbar = ()=>{
-    var _store_categoryData, _store_categoryData1, _store_cartData, _store_cartData_products, _store_categoryData2, _store_categoryData3, _store_categoryData4, _store_categoryData5;
     const [openDep, setOpenDep] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
     const [query, setQuery] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)("");
     const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
@@ -304,8 +303,10 @@ const Navbar = ()=>{
     const { loginForm  } = (0,src_store__WEBPACK_IMPORTED_MODULE_7__/* .useSelector */ .v9)((state)=>state.user);
     const dispatch = (0,src_store__WEBPACK_IMPORTED_MODULE_7__/* .useDispatch */ .I0)();
     const ref = (0,react__WEBPACK_IMPORTED_MODULE_3__.useRef)();
+    const navRef = (0,react__WEBPACK_IMPORTED_MODULE_3__.useRef)();
     const depRef = (0,react__WEBPACK_IMPORTED_MODULE_3__.useRef)();
     const catRef = (0,react__WEBPACK_IMPORTED_MODULE_3__.useRef)();
+    const closeBtn = (0,react__WEBPACK_IMPORTED_MODULE_3__.useRef)();
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(()=>{
         jquery__WEBPACK_IMPORTED_MODULE_4___default()(".all-category-btn").on("click", function() {
             jquery__WEBPACK_IMPORTED_MODULE_4___default()(".default-menu").slideToggle();
@@ -323,11 +324,17 @@ const Navbar = ()=>{
             jquery__WEBPACK_IMPORTED_MODULE_4___default()(".default-menu").hide();
             jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).hide();
         });
+        jquery__WEBPACK_IMPORTED_MODULE_4___default()(".close_tbs").click(function() {
+            jquery__WEBPACK_IMPORTED_MODULE_4___default()(".serachbar_header").css("display", "none");
+        });
     }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(()=>{
         dispatch((0,src_store_apps_product__WEBPACK_IMPORTED_MODULE_8__/* .fetchProductData */ .DA)());
         dispatch((0,src_store_apps_product__WEBPACK_IMPORTED_MODULE_8__/* .fetchCategoryData */ .YJ)());
     }, []);
+    (0,src_core_hooks_useOnClickOutside__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z)(navRef, ()=>{
+        closeBtn.current.click();
+    });
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("nav", {
@@ -352,6 +359,7 @@ const Navbar = ()=>{
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
                                         className: "navbar-toggler",
                                         type: "button",
+                                        ref: closeBtn,
                                         "data-bs-toggle": "collapse",
                                         "data-bs-target": "#navbarSupportedContent",
                                         "aria-controls": "navbarSupportedContent",
@@ -400,14 +408,12 @@ const Navbar = ()=>{
                                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                                                                     className: "dropdown-menu default-menu",
                                                                     "aria-labelledby": "dropdownMenu1",
-                                                                    children: (store === null || store === void 0 ? void 0 : (_store_categoryData = store.categoryData) === null || _store_categoryData === void 0 ? void 0 : _store_categoryData.length) ? store === null || store === void 0 ? void 0 : (_store_categoryData1 = store.categoryData) === null || _store_categoryData1 === void 0 ? void 0 : _store_categoryData1.map((item, i)=>{
-                                                                        /*#__PURE__*/ return react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                                                    children: store?.categoryData?.length ? store?.categoryData?.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                href: `/search/${item === null || item === void 0 ? void 0 : item.name}`,
-                                                                                children: item === null || item === void 0 ? void 0 : item.name
+                                                                                href: `/search/${item?.name}`,
+                                                                                children: item?.name
                                                                             })
-                                                                        }, i);
-                                                                    }) : null
+                                                                        }, i)) : null
                                                                 })
                                                             ]
                                                         }),
@@ -432,8 +438,10 @@ const Navbar = ()=>{
                                                                             role: "search",
                                                                             onSubmit: (e)=>{
                                                                                 e.preventDefault();
-                                                                                router.push(`/search/${query}`);
-                                                                                setQuery("");
+                                                                                if (query) {
+                                                                                    router.push(`/search/${query}`);
+                                                                                    setQuery("");
+                                                                                }
                                                                             },
                                                                             children: [
                                                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
@@ -453,6 +461,11 @@ const Navbar = ()=>{
                                                                         }),
                                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                             className: "close_tbs",
+                                                                            "data-bs-toggle": "collapse",
+                                                                            "data-bs-target": "#navbarSupportedContent",
+                                                                            "aria-controls": "navbarSupportedContent",
+                                                                            "aria-expanded": "false",
+                                                                            "aria-label": "Toggle navigation",
                                                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                                                                 src: "/images/close.svg",
                                                                                 alt: "menu",
@@ -484,7 +497,7 @@ const Navbar = ()=>{
                                                                         }),
                                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                             className: "cart-counts",
-                                                                            children: (store === null || store === void 0 ? void 0 : (_store_cartData = store.cartData) === null || _store_cartData === void 0 ? void 0 : (_store_cartData_products = _store_cartData.products) === null || _store_cartData_products === void 0 ? void 0 : _store_cartData_products.length) || 0
+                                                                            children: store?.cartData?.products?.length || 0
                                                                         })
                                                                     ]
                                                                 }),
@@ -492,7 +505,7 @@ const Navbar = ()=>{
                                                                     className: "logged_in desktop_shown",
                                                                     children: [
                                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                            href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                                            href: `/profile/${user?.id}`,
                                                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                                                                 src: "/images/profile.svg",
                                                                                 alt: "menu",
@@ -505,7 +518,7 @@ const Navbar = ()=>{
                                                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                                     className: "login-text",
                                                                                     children: user ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                        href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                                                        href: `/profile/${user?.id}`,
                                                                                         children: "Profile"
                                                                                     }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                                                                         href: "/login",
@@ -542,6 +555,7 @@ const Navbar = ()=>{
                                         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                             className: "collapse navbar-collapse",
                                             id: "navbarSupportedContent",
+                                            ref: navRef,
                                             children: [
                                                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
                                                     className: "navbar-nav me-auto mb-2 mb-lg-0",
@@ -559,7 +573,7 @@ const Navbar = ()=>{
                                                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                         className: "login-text",
                                                                         children: user ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                            href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                                            href: `/profile/${user?.id}`,
                                                                             children: "Profile"
                                                                         }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                                                             href: "/login",
@@ -568,9 +582,13 @@ const Navbar = ()=>{
                                                                     })
                                                                 }),
                                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                                                    href: "",
-                                                                    onClick: src_api_requests__WEBPACK_IMPORTED_MODULE_6__/* .doNothing */ .cn,
+                                                                    role: "button",
                                                                     className: "nav-close",
+                                                                    "data-bs-toggle": "collapse",
+                                                                    "data-bs-target": "#navbarSupportedContent",
+                                                                    "aria-controls": "navbarSupportedContent",
+                                                                    "aria-expanded": "false",
+                                                                    "aria-label": "Toggle navigation",
                                                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                                                         src: "/images/close.svg",
                                                                         alt: "menu",
@@ -586,8 +604,17 @@ const Navbar = ()=>{
                                                                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
                                                                     className: "d-flex",
                                                                     role: "search",
+                                                                    onSubmit: (e)=>{
+                                                                        e.preventDefault();
+                                                                        if (query) {
+                                                                            router.push(`/search/${query}`);
+                                                                            setQuery("");
+                                                                        }
+                                                                    },
                                                                     children: [
                                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                                                            value: query,
+                                                                            onChange: (e)=>setQuery(e.target.value),
                                                                             className: "form-control me-2",
                                                                             type: "search",
                                                                             placeholder: "Search",
@@ -631,14 +658,12 @@ const Navbar = ()=>{
                                                                     }),
                                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                                                                         className: "dd-menu",
-                                                                        children: (store === null || store === void 0 ? void 0 : (_store_categoryData2 = store.categoryData) === null || _store_categoryData2 === void 0 ? void 0 : _store_categoryData2.length) ? store === null || store === void 0 ? void 0 : (_store_categoryData3 = store.categoryData) === null || _store_categoryData3 === void 0 ? void 0 : _store_categoryData3.map((item, i)=>{
-                                                                            /*#__PURE__*/ return react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                                                        children: store?.categoryData?.length ? store?.categoryData?.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                    href: `/search/${item === null || item === void 0 ? void 0 : item.name}`,
-                                                                                    children: item === null || item === void 0 ? void 0 : item.name
+                                                                                    href: `/search/${item?.name}`,
+                                                                                    children: item?.name
                                                                                 })
-                                                                            }, i);
-                                                                        }) : null
+                                                                            }, i)) : null
                                                                     })
                                                                 ]
                                                             })
@@ -671,14 +696,12 @@ const Navbar = ()=>{
                                                                     }),
                                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                                                                         className: "dd-menu",
-                                                                        children: (store === null || store === void 0 ? void 0 : (_store_categoryData4 = store.categoryData) === null || _store_categoryData4 === void 0 ? void 0 : _store_categoryData4.length) ? store === null || store === void 0 ? void 0 : (_store_categoryData5 = store.categoryData) === null || _store_categoryData5 === void 0 ? void 0 : _store_categoryData5.map((item, i)=>{
-                                                                            /*#__PURE__*/ return react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                                                        children: store?.categoryData?.length ? store?.categoryData?.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                                                    href: `/search/${item === null || item === void 0 ? void 0 : item.name}`,
-                                                                                    children: item === null || item === void 0 ? void 0 : item.name
+                                                                                    href: `/search/${item?.name}`,
+                                                                                    children: item?.name
                                                                                 })
-                                                                            }, i);
-                                                                        }) : null
+                                                                            }, i)) : null
                                                                     })
                                                                 ]
                                                             })
@@ -715,16 +738,7 @@ const Navbar = ()=>{
                                                         className: "track-currency",
                                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                                className: "usd_currency dropdown",
-                                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                                                    className: "usd_currency-btn dropdown-toggle",
-                                                                    type: "button",
-                                                                    id: "dropdownMenu3",
-                                                                    "data-toggle": "dropdown",
-                                                                    "aria-haspopup": "true",
-                                                                    "aria-expanded": "true",
-                                                                    children: "EURO"
-                                                                })
+                                                                className: "usd_currency dropdown"
                                                             })
                                                         })
                                                     })
@@ -844,14 +858,17 @@ __webpack_async_result__();
 /***/ }),
 
 /***/ 7259:
-/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 function useOnClickOutside(ref, handler, state) {
-    useEffect(()=>{
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
         if (state) {
             const listener = (event)=>{
                 if (!ref.current || ref.current.contains(event.target)) {
@@ -871,7 +888,7 @@ function useOnClickOutside(ref, handler, state) {
         handler
     ]);
 }
-/* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = ((/* unused pure expression or super */ null && (useOnClickOutside)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useOnClickOutside);
 
 
 /***/ }),
@@ -901,11 +918,7 @@ const BlankLayoutWithAppBar = (props)=>{
     // ** Props
     const { children  } = props;
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "main",
-        style: {
-            minHeight: "438.609px",
-            paddingTop: "142.484px"
-        },
+        className: "main navbar-sanskar",
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_navbar__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {}),
             children,
@@ -1095,7 +1108,7 @@ const FooterContent = ()=>{
                                                 children: [
                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                                         children: user ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                                            href: `/profile/${user === null || user === void 0 ? void 0 : user.id}`,
+                                                            href: `/profile/${user?.id}`,
                                                             children: "Profile"
                                                         }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                                             href: "/login",
@@ -44001,14 +44014,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_22__);
 /* harmony import */ var jquery_dist_jquery_min_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(9818);
 /* harmony import */ var jquery_dist_jquery_min_js__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(jquery_dist_jquery_min_js__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var _styles_common_css__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(9886);
-/* harmony import */ var _styles_common_css__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_styles_common_css__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _styles_responsive_common_css__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(3843);
+/* harmony import */ var _styles_responsive_common_css__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_styles_responsive_common_css__WEBPACK_IMPORTED_MODULE_24__);
 /* harmony import */ var _styles_var_css__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(9488);
 /* harmony import */ var _styles_var_css__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_styles_var_css__WEBPACK_IMPORTED_MODULE_25__);
 /* harmony import */ var _fonts_stylesheet_css__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(2828);
 /* harmony import */ var _fonts_stylesheet_css__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_fonts_stylesheet_css__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var _styles_responsive_css__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(6050);
-/* harmony import */ var _styles_responsive_css__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_styles_responsive_css__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _styles_responsive_responsive_css__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(2668);
+/* harmony import */ var _styles_responsive_responsive_css__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_styles_responsive_responsive_css__WEBPACK_IMPORTED_MODULE_27__);
 /* harmony import */ var src_core_layouts_BlankLayoutWithAppBar__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(1329);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(6022);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_29__);
@@ -44057,6 +44070,10 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([reac
 
 
 
+// import '../../styles/common.css'
+// import '../../styles/var.css'
+// import '../../fonts/stylesheet.css'
+// import '../../styles/responsive.css'
 
 
 
@@ -44186,13 +44203,6 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 9886:
-/***/ (() => {
-
-
-
-/***/ }),
-
 /***/ 6764:
 /***/ (() => {
 
@@ -44200,7 +44210,14 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 6050:
+/***/ 3843:
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ 2668:
 /***/ (() => {
 
 

@@ -31,7 +31,6 @@ code[class*='language-'] {
   padding: 0.6rem 1rem;
 }
 
-
 button {
   background-color: transparent;
   border: none;
@@ -45,32 +44,27 @@ button {
   color: #b9b1b1;
 }
 
-.star{
+.star {
   font-size: 1.8rem;
 }
 
-
-.text-line-2{
+.text-line-2 {
   overflow: hidden;
-   display: -webkit-box;
-   -webkit-line-clamp: 2; /* number of lines to show */
-           line-clamp: 2; 
-   -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-
-.text-eclipse{
+.text-eclipse {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
-
-.text_cart{
-    text-align: center;
-    background: none !important;
-
+.text_cart {
+  text-align: center;
+  background: none !important;
 }
 
 .footer-hiring-btn {
@@ -83,13 +77,27 @@ button {
   gap: 2px;
 }
 
-.footer-hiring-btn2  img {
-    max-width: 28px !important;
+.footer-hiring-btn2 img {
+  max-width: 28px !important;
 }
 
-@media (max-width:675px){
+.navbar-sanskar {
+    min-height: 438.609px;
+    padding-top: 142.484px !important;
+}
+
+@media (max-width: 675px) {
   .footer-hiring-btn2 img {
     max-width: 24px !important;
+  }
+
+  .navbar-sanskar {
+    padding-top: 63.484px !important;
+  }
 }
 
+@media (max-width: 1020px) {
+  .navbar-sanskar {
+    padding-top: 76.484px !important;
+  }
 }

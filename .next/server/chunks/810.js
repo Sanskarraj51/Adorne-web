@@ -93,7 +93,7 @@ const fetchProductData = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.create
 });
 const fetchProductDetailData = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("appProduct/fetchProductDetailData", async (id)=>{
     let response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_1__/* .handleGetAPI */ .Xr)(src_configs_auth__WEBPACK_IMPORTED_MODULE_2__/* ["default"].productDetail */ .Z.productDetail + id);
-    return response === null || response === void 0 ? void 0 : response.respData;
+    return response?.respData;
 });
 // ** Fetch CategoryData
 const fetchCategoryData = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("appProduct/fetchCategoryData", async ()=>{
@@ -128,12 +128,12 @@ const fetchSizeData = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsy
 const fetchCartData = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("appProduct/fetchCartData", async ()=>{
     let userData = JSON.parse(window.localStorage.getItem("userData"));
     // eslint-disable-next-line
-    let response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_1__/* .handleGetAPI */ .Xr)(src_configs_auth__WEBPACK_IMPORTED_MODULE_2__/* ["default"].cart */ .Z.cart + (userData === null || userData === void 0 ? void 0 : userData.id));
+    let response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_1__/* .handleGetAPI */ .Xr)(src_configs_auth__WEBPACK_IMPORTED_MODULE_2__/* ["default"].cart */ .Z.cart + userData?.id);
     return response;
 });
 const fetchWishListData = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("appProduct/fetchWishListData", async ()=>{
     let userData = JSON.parse(window.localStorage.getItem("userData"));
-    let response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_1__/* .handleGetAPI */ .Xr)(src_configs_auth__WEBPACK_IMPORTED_MODULE_2__/* ["default"].wishList */ .Z.wishList + (userData === null || userData === void 0 ? void 0 : userData.id));
+    let response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_1__/* .handleGetAPI */ .Xr)(src_configs_auth__WEBPACK_IMPORTED_MODULE_2__/* ["default"].wishList */ .Z.wishList + userData?.id);
     return response;
 });
 const addToCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("appProduct/addToCart", async (params, { dispatch  })=>{
@@ -141,7 +141,7 @@ const addToCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncTh
     let response;
     if (userData) {
         let body = params;
-        body.user_id = userData === null || userData === void 0 ? void 0 : userData.id;
+        body.user_id = userData?.id;
         response = await (0,src_api_requests__WEBPACK_IMPORTED_MODULE_1__/* .handlePostAPI */ .K2)(src_configs_auth__WEBPACK_IMPORTED_MODULE_2__/* ["default"].addCart */ .Z.addCart, body);
         if (response) {
             dispatch(fetchCartData());
@@ -188,43 +188,34 @@ const appProductSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createS
     },
     extraReducers: (builder)=>{
         builder.addCase(fetchProductData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.data = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.respData;
+            state.data = action.payload?.respData;
         });
         builder.addCase(fetchProductDetailData.fulfilled, (state, action)=>{
             state.productDetail = action.payload;
         });
         builder.addCase(fetchCategoryData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.categoryData = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.categoryData = action.payload?.data;
         });
         builder.addCase(fetchBrandData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.brandData = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.brandData = action.payload?.data;
         });
         builder.addCase(fetchBannerData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.banners = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.banners = action.payload?.data;
         });
         builder.addCase(fetchBlogData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.blogs = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.blogs = action.payload?.data;
         });
         builder.addCase(fetchColorData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.colors = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.colors = action.payload?.data;
         });
         builder.addCase(fetchSizeData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.sizes = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.sizes = action.payload?.data;
         });
         builder.addCase(fetchCartData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.cartData = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.cartData = action.payload?.data;
         });
         builder.addCase(fetchWishListData.fulfilled, (state, action)=>{
-            var _action_payload;
-            state.wishListData = (_action_payload = action.payload) === null || _action_payload === void 0 ? void 0 : _action_payload.data;
+            state.wishListData = action.payload?.data;
         });
     }
 });

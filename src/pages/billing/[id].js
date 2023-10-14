@@ -1,5 +1,7 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 import BreadCrumb from 'src/@core/components/breadcrumb'
 import { useAuth } from 'src/hooks/useAuth'
 import { useSelector } from 'src/store'
@@ -9,6 +11,7 @@ const Billing = () => {
   const [selected, setSelected] = useState('')
   const store = useSelector(state => state.product)
   const { user } = useAuth()
+  const router = useRouter()
 
   return (
     <>
@@ -46,7 +49,7 @@ const Billing = () => {
                   <ul>
                     <li>
                       <figure>Subtotal</figure>
-                      <span>${store?.cartData?.total? store?.cartData?.total : 0}</span>
+                      <span>${store?.cartData?.total ? store?.cartData?.total : 0}</span>
                     </li>
                     <li>
                       <figure>Delievery Charges</figure>
@@ -54,7 +57,7 @@ const Billing = () => {
                     </li>
                     <li class='final-billing'>
                       <figure>Total</figure>
-                      <span>${store?.cartData?.total? store?.cartData?.total : 0}</span>
+                      <span>${store?.cartData?.total ? store?.cartData?.total : 0}</span>
                     </li>
                   </ul>
                 </div>
@@ -62,9 +65,19 @@ const Billing = () => {
                   <Link href='/' class='btn gradiant_button'>
                     Continue Shopping
                   </Link>
-                  <Link href={`/checkout/${user?.id}`} class='btn primary-button'>
+                  <a
+                    role='button'
+                    onClick={() => {
+                      if (!selected) {
+                        toast.error('Please select a Shipping Address')
+                        return
+                      }
+                      router.push(`/checkout/${user?.id}`)
+                    }}
+                    class='btn primary-button'
+                  >
                     Proceed to Checkout
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

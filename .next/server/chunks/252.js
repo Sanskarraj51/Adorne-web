@@ -24,15 +24,13 @@ const userData = ()=>{
     return JSON.parse(window.localStorage.getItem("userData"));
 };
 const checkLoginError = (err)=>{
-    var _err_response, _err_response_data;
-    if (((_err_response = err.response) === null || _err_response === void 0 ? void 0 : (_err_response_data = _err_response.data) === null || _err_response_data === void 0 ? void 0 : _err_response_data.message) === "jwt expired") {
+    if (err.response?.data?.message === "jwt expired") {
         react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error("Your token has expired, Kindly login again!");
         localStorage.clear();
         window.location.reload();
         return true;
     } else {
-        var _err_response1, _err_response_data1, _err_response2, _err_response_data2;
-        react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error(typeof (err === null || err === void 0 ? void 0 : (_err_response1 = err.response) === null || _err_response1 === void 0 ? void 0 : (_err_response_data1 = _err_response1.data) === null || _err_response_data1 === void 0 ? void 0 : _err_response_data1.message) === "string" ? err === null || err === void 0 ? void 0 : (_err_response2 = err.response) === null || _err_response2 === void 0 ? void 0 : (_err_response_data2 = _err_response2.data) === null || _err_response_data2 === void 0 ? void 0 : _err_response_data2.message : "Something went wrong on our side");
+        react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error(typeof err?.response?.data?.message === "string" ? err?.response?.data?.message : "Something went wrong on our side");
     }
 };
 function doNothing(e) {
@@ -75,7 +73,7 @@ function debouncing(func, wait, immediate) {
 const fetchProjectListData = async ()=>{
     try {
         // ** token from local storage
-        const response = await axios.get(`${"http://13.51.40.75:3001/api/v1"}/projects`, {
+        const response = await axios.get(`${"http://localhost:3030/api/v1"}/projects`, {
             headers: {
                 Authorization: `Bearer ${localStorageToken()}`
             }
@@ -95,7 +93,7 @@ const previewFile = (file)=>{
 };
 async function handlePostAPI(url, data, msg) {
     try {
-        const response = await axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("http://13.51.40.75:3001/api/v1" + url, data, {
+        const response = await axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("http://localhost:3030/api/v1" + url, data, {
             headers: {
                 Authorization: `Bearer ${localStorageToken()}`
             }
@@ -113,7 +111,7 @@ async function handlePostAPI(url, data, msg) {
 }
 async function handlePostAPIWithoutHeader(url, data, msg) {
     try {
-        const response = await axios.post("http://13.51.40.75:3001/api/v1" + url, data);
+        const response = await axios.post("http://localhost:3030/api/v1" + url, data);
         if (response.data) {
             if (msg !== null) {
                 toast.success(msg || response.data.message);
@@ -127,7 +125,7 @@ async function handlePostAPIWithoutHeader(url, data, msg) {
 }
 async function handlePutAPIWithoutHeader(url, data, msg) {
     try {
-        const response = await axios.put("http://13.51.40.75:3001/api/v1" + url, data);
+        const response = await axios.put("http://localhost:3030/api/v1" + url, data);
         if (response.data) {
             if (msg !== null) {
                 toast.success(msg || response.data.message);
@@ -141,7 +139,7 @@ async function handlePutAPIWithoutHeader(url, data, msg) {
 }
 async function handlePutAPI(url, data, msg) {
     try {
-        const response = await axios.put("http://13.51.40.75:3001/api/v1" + url, data, {
+        const response = await axios.put("http://localhost:3030/api/v1" + url, data, {
             headers: {
                 Authorization: `Bearer ${localStorageToken()}`
             }
@@ -159,7 +157,7 @@ async function handlePutAPI(url, data, msg) {
 }
 async function handleGetAPI(url, msg) {
     try {
-        const response = await axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("http://13.51.40.75:3001/api/v1" + url, {
+        const response = await axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("http://localhost:3030/api/v1" + url, {
             headers: {
                 Authorization: `Bearer ${localStorageToken()}`
             }
@@ -177,7 +175,7 @@ async function handleGetAPI(url, msg) {
 }
 async function handleDeleteAPI(url, msg) {
     try {
-        const response = await axios.delete("http://13.51.40.75:3001/api/v1" + url, {
+        const response = await axios.delete("http://localhost:3030/api/v1" + url, {
             headers: {
                 Authorization: `Bearer ${localStorageToken()}`
             }
@@ -195,7 +193,7 @@ async function handleDeleteAPI(url, msg) {
 }
 async function handleGetAPIHeaderLess(url, msg) {
     try {
-        const response = await axios.get("http://13.51.40.75:3001/api/v1" + url);
+        const response = await axios.get("http://localhost:3030/api/v1" + url);
         if (response.data) {
             if (msg) {
                 toast.success(msg || response.data.message);
@@ -223,7 +221,7 @@ async function uploadGLobalImage(data) {
     let bodyData = new FormData();
     bodyData.append("imageUrl", data);
     let value = await handlePostAPI(url, bodyData, null);
-    return value === null || value === void 0 ? void 0 : value.baseUrl;
+    return value?.baseUrl;
 }
 const getStates = async (country)=>{
     const response = await handleGetAPI(`/list/states/${country}`);

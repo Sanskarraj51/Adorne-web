@@ -11,12 +11,7 @@ const BlankLayoutWithAppBar = props => {
 
   return (
     <div
-      className='main'
-      
-      style={{
-        minHeight: '438.609px',
-        paddingTop: '142.484px'
-      }}
+      className='main navbar-sanskar'
     >
       <Navbar />
       {children}

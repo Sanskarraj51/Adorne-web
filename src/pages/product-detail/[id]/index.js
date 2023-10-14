@@ -14,6 +14,8 @@ import { useDispatch } from 'react-redux'
 import toast from 'react-hot-toast'
 import { useAuth } from 'src/hooks/useAuth'
 import { setLoginForm } from 'src/store/apps/user'
+import ReactImageMagnify from 'react-image-magnify'
+import { Box } from '@mui/system'
 
 const ProductDetail = () => {
   const [variant, setVariant] = useState({})
@@ -58,101 +60,101 @@ const ProductDetail = () => {
     }
   }, [id])
 
-  useEffect(() => {
-    $('.zoom').mousemove(function (e) {
-      zoom(e)
-    })
+  // useEffect(() => {
+  //   $('.zoom').mousemove(function (e) {
+  //     zoom(e)
+  //   })
 
-    function zoom(e) {
-      var x, y
-      var zoomer = e.currentTarget
-      if (e.offsetX) {
-        offsetX = e.offsetX
-      } else {
-        offsetX = e.touches[0].pageX
-      }
+  //   function zoom(e) {
+  //     var x, y
+  //     var zoomer = e.currentTarget
+  //     if (e.offsetX) {
+  //       offsetX = e.offsetX
+  //     } else {
+  //       offsetX = e.touches[0].pageX
+  //     }
 
-      if (e.offsetY) {
-        offsetY = e.offsetY
-      } else {
-        offsetX = e.touches[0].pageX
-      }
-      x = (offsetX / zoomer.offsetWidth) * 100
-      y = (offsetY / zoomer.offsetHeight) * 100
-      zoomer.style.backgroundPosition = x + '% ' + y + '%'
-    }
-    $(document).mousemove(function (e) {
-      var x = e.clientX
-      var y = e.clientY
+  //     if (e.offsetY) {
+  //       offsetY = e.offsetY
+  //     } else {
+  //       offsetX = e.touches[0].pageX
+  //     }
+  //     x = (offsetX / zoomer.offsetWidth) * 100
+  //     y = (offsetY / zoomer.offsetHeight) * 100
+  //     zoomer.style.backgroundPosition = x + '% ' + y + '%'
+  //   }
+  //   $(document).mousemove(function (e) {
+  //     var x = e.clientX
+  //     var y = e.clientY
 
-      var x = e.clientX
-      var y = e.clientY
+  //     var x = e.clientX
+  //     var y = e.clientY
 
-      var imgx1 = $('.slideshow-items.active').offset()?.left
-      var imgx2 = $('.slideshow-items.active').outerWidth() + imgx1
-      var imgy1 = $('.slideshow-items.active').offset()?.top
-      var imgy2 = $('.slideshow-items.active').outerHeight() + imgy1
+  //     var imgx1 = $('.slideshow-items.active').offset()?.left
+  //     var imgx2 = $('.slideshow-items.active').outerWidth() + imgx1
+  //     var imgy1 = $('.slideshow-items.active').offset()?.top
+  //     var imgy2 = $('.slideshow-items.active').outerHeight() + imgy1
 
-      if (x > imgx1 && x < imgx2 && y > imgy1 && y < imgy2) {
-        $('#lens').show()
-        $('#result').show()
-        imageZoom($('.slideshow-items.active'), $('#result'), $('#lens'))
-      } else {
-        $('#lens').hide()
-        $('#result').hide()
-      }
-    })
+  //     if (x > imgx1 && x < imgx2 && y > imgy1 && y < imgy2) {
+  //       $('#lens').show()
+  //       $('#result').show()
+  //       imageZoom($('.slideshow-items.active'), $('#result'), $('#lens'))
+  //     } else {
+  //       $('#lens').hide()
+  //       $('#result').hide()
+  //     }
+  //   })
 
-    function imageZoom(img, result, lens) {
-      result.width(img.innerWidth())
-      result.height(img.innerHeight())
-      lens.width(img.innerWidth() / 2)
-      lens.height(img.innerHeight() / 2)
+  //   function imageZoom(img, result, lens) {
+  //     result.width(img.innerWidth())
+  //     result.height(img.innerHeight())
+  //     lens.width(img.innerWidth() / 2)
+  //     lens.height(img.innerHeight() / 2)
 
-      result.offset({ top: img.offset().top, left: img.offset().left + img.outerWidth() + 10 })
+  //     result.offset({ top: img.offset().top, left: img.offset().left + img.outerWidth() + 10 })
 
-      var cx = img.innerWidth() / lens.innerWidth()
-      var cy = img.innerHeight() / lens.innerHeight()
+  //     var cx = img.innerWidth() / lens.innerWidth()
+  //     var cy = img.innerHeight() / lens.innerHeight()
 
-      result.css('backgroundImage', 'url(' + img.attr('src') + ')')
-      result.css('backgroundSize', img.width() * cx + 'px ' + img.height() * cy + 'px')
+  //     result.css('backgroundImage', 'url(' + img.attr('src') + ')')
+  //     result.css('backgroundSize', img.width() * cx + 'px ' + img.height() * cy + 'px')
 
-      lens.mousemove(function (e) {
-        moveLens(e)
-      })
-      img.mousemove(function (e) {
-        moveLens(e)
-      })
-      lens.on('touchmove', function () {
-        moveLens()
-      })
-      img.on('touchmove', function () {
-        moveLens()
-      })
+  //     lens.mousemove(function (e) {
+  //       moveLens(e)
+  //     })
+  //     img.mousemove(function (e) {
+  //       moveLens(e)
+  //     })
+  //     lens.on('touchmove', function () {
+  //       moveLens()
+  //     })
+  //     img.on('touchmove', function () {
+  //       moveLens()
+  //     })
 
-      function moveLens(e) {
-        var x = e.clientX - lens.outerWidth() / 2
-        var y = e.clientY - lens.outerHeight() / 2
-        if (x > img.outerWidth() + img.offset().left - lens.outerWidth()) {
-          x = img.outerWidth() + img.offset().left - lens.outerWidth()
-        }
-        if (x < img.offset().left) {
-          x = img.offset().left
-        }
-        if (y > img.outerHeight() + img.offset().top - lens.outerHeight()) {
-          y = img.outerHeight() + img.offset().top - lens.outerHeight()
-        }
-        if (y < img.offset().top) {
-          y = img.offset().top
-        }
-        lens.offset({ top: y, left: x })
-        result.css(
-          'backgroundPosition',
-          '-' + (x - img.offset().left) * cx + 'px -' + (y - img.offset().top) * cy + 'px'
-        )
-      }
-    }
-  }, [])
+  //     function moveLens(e) {
+  //       var x = e.clientX - lens.outerWidth() / 2
+  //       var y = e.clientY - lens.outerHeight() / 2
+  //       if (x > img.outerWidth() + img.offset().left - lens.outerWidth()) {
+  //         x = img.outerWidth() + img.offset().left - lens.outerWidth()
+  //       }
+  //       if (x < img.offset().left) {
+  //         x = img.offset().left
+  //       }
+  //       if (y > img.outerHeight() + img.offset().top - lens.outerHeight()) {
+  //         y = img.outerHeight() + img.offset().top - lens.outerHeight()
+  //       }
+  //       if (y < img.offset().top) {
+  //         y = img.offset().top
+  //       }
+  //       lens.offset({ top: y, left: x })
+  //       result.css(
+  //         'backgroundPosition',
+  //         '-' + (x - img.offset().left) * cx + 'px -' + (y - img.offset().top) * cy + 'px'
+  //       )
+  //     }
+  //   }
+  // }, [])
 
   function changeSliderr(e, i) {
     changeSlide(i)
@@ -232,20 +234,80 @@ const ProductDetail = () => {
           <div className='row'>
             <div className='col-lg-6 col-md-4 col-sm-12'>
               <div className='product_image'>
-                <div id='lens'></div>
+                {/* <div id='lens'></div> */}
 
-                <div id='slideshow-items-container' className='zoom-container'>
-                  {productdata?.ProductImageEntities?.map((item, i) => (
+                {/* <div
+                
+                //  id='slideshow-items-container' 
+                // className='zoom-container'
+                > */}
+                {productdata?.ProductImageEntities?.map((item, i) => (
+                  <ReactImageMagnify
+                    fadeDurationInMs={500}
+                    key={i}
+                    style={{
+                      display: 'inline-block',
+                      position: 'relative',
+                      // margin: 'auto 0',
+                      // padding: '0.5rem',
+                      borderRadius: ' 0px',
+                      border: '1px solid #c1c1c1',
+                      background: '#E9E9E9',
+                      marginTop: '2rem',
+                      maxHeight: '500px',
+                      width: '500px'
+                    }}
+                    imageStyle={{
+                      objectFit: 'contain',
+                      maxHeight: '400px',
+                      width: 'auto',
+                      margin: '0 auto',
+                      maxWidth: '100%'
+                    }}
+                    lensStyle={{
+                      backgroundColor: '#fff'
+                    }}
+                    enlargedImageContainerStyle={{
+                      backgroundColor: '#fff'
+                    }}
+                    {...{
+                      smallImage: {
+                        alt: 'Wristwatch by Ted Baker London',
+                        isFluidWidth: true,
+                        src: item?.key ? mediaUrl + item?.key : '/images/1.png'
+                      },
+                      largeImage: {
+                        src: item?.key ? mediaUrl + item?.key : '/images/1.png',
+                        width: 1200,
+                        height: 1800
+                      },
+                      enlargedImageContainerStyle: {
+                        zIndex: '999'
+                      },
+                      enlargedImagePosition: 'right',
+                      lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' },
+                      enlargedImageContainerDimensions: {
+                        width: '100%',
+                        height: '100%'
+                      }
+                    }}
+                    className={` 
+                      // slideshow-items ${i === 0 ? 'active' : ''}
+                      `}
+                  />
+                ))}
+
+                {/* {productdata?.ProductImageEntities?.map((item, i) => (
                     <img
                       key={i}
                       className={`slideshow-items ${i === 0 ? 'active' : ''}`}
                       src={item?.key ? mediaUrl + item?.key : '/images/1.png'}
                       alt=''
                     />
-                  ))}
-                </div>
+                  ))}  */}
+                {/* </div> */}
 
-                <div id='result'></div>
+                {/* <div id='result'></div> */}
 
                 <div className='row justify-content-center'>
                   {productdata?.ProductImageEntities?.map((item, i) => {
@@ -391,12 +453,12 @@ const ProductDetail = () => {
             </Link>
           </div>
           <div className='row'>
-            {store?.data?.products?.slice(0,4)?.map((item, i) => {
+            {productDetail?.relatedProduct?.map((item, i) => {
               if (item?.id == id) return
 
               return (
                 <div key={i} className='col-md-3'>
-                  <FeaturedListCard i={i} mediaUrl={store?.data?.mediaUrl} item={item} />
+                  <FeaturedListCard i={i} mediaUrl={mediaUrl} item={item} />
                 </div>
               )
             })}

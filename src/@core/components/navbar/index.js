@@ -21,8 +21,10 @@ const Navbar = () => {
   const { loginForm } = useSelector(state => state.user)
   const dispatch = useDispatch()
   const ref = useRef()
+  const navRef = useRef()
   const depRef = useRef()
   const catRef = useRef()
+  const closeBtn = useRef()
 
   useEffect(() => {
     $('.all-category-btn').on('click', function () {
@@ -41,12 +43,21 @@ const Navbar = () => {
       $('.default-menu').hide()
       $(this).hide()
     })
+
+    $('.close_tbs').click(function () {
+      $('.serachbar_header').css('display', 'none')
+    })
   }, [])
 
   useEffect(() => {
     dispatch(fetchProductData())
     dispatch(fetchCategoryData())
   }, [])
+
+  useOnClickOutside(navRef,()=>{
+    closeBtn.current.click()
+  })
+  
 
   return (
     <header>
@@ -60,6 +71,7 @@ const Navbar = () => {
               <button
                 className='navbar-toggler'
                 type='button'
+ref={closeBtn}
                 data-bs-toggle='collapse'
                 data-bs-target='#navbarSupportedContent'
                 aria-controls='navbarSupportedContent'
@@ -89,8 +101,6 @@ const Navbar = () => {
                       <ul
                         className='dropdown-menu default-menu'
                         aria-labelledby='dropdownMenu1'
-
-                        // style={{ display: openCategories ? 'block' : 'none' }}
                       >
                         {store?.categoryData?.length
                           ? store?.categoryData?.map((item, i) => (
@@ -113,16 +123,32 @@ const Navbar = () => {
                           role='search'
                           onSubmit={e => {
                             e.preventDefault()
-                            router.push(`/search/${query}`)
-                            setQuery('')
+                            if (query) {
+                              router.push(`/search/${query}`)
+                              setQuery('')
+                            }
                           }}
                         >
-                          <input value={query} onChange={(e)=>setQuery(e.target.value)} className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
+                          <input
+                            value={query}
+                            onChange={e => setQuery(e.target.value)}
+                            className='form-control me-2'
+                            type='search'
+                            placeholder='Search'
+                            aria-label='Search'
+                          />
                           <button className='btn btn-outline-success' type='submit'>
                             Search
                           </button>
                         </form>
-                        <div className='close_tbs'>
+                        <div
+                          className='close_tbs'
+                          data-bs-toggle='collapse'
+                          data-bs-target='#navbarSupportedContent'
+                          aria-controls='navbarSupportedContent'
+                          aria-expanded='false'
+                          aria-label='Toggle navigation'
+                        >
                           <img src='/images/close.svg' alt='menu' className='img-fluid' />
                         </div>
                       </div>
@@ -138,7 +164,7 @@ const Navbar = () => {
                           <div className='cart-counts'>{store?.cartData?.products?.length || 0}</div>
                         </li>
                         <li className='logged_in desktop_shown'>
-                          <Link  href={`/profile/${user?.id}`}>
+                          <Link href={`/profile/${user?.id}`}>
                             <img src='/images/profile.svg' alt='menu' className='img-fluid' />
                           </Link>
 
@@ -173,8 +199,14 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <div className='bottomheader'>
-                <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+              <div className='bottomheader'
+              
+              
+              >
+                <div className='collapse navbar-collapse' id='navbarSupportedContent'
+                
+                ref={navRef}
+                >
                   <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                     <li className='logged_in responsive_shown desktop_hidden'>
                       <img src='/images/profile.svg' alt='menu' className='img-fluid icon profile_icon' />
@@ -183,15 +215,40 @@ const Navbar = () => {
                           {user ? <Link href={`/profile/${user?.id}`}>Profile</Link> : <Link href='/login'>Login</Link>}
                         </div>
                       </div>
-                      <a href='' onClick={doNothing} className='nav-close'>
+                      <a
+                        role='button'
+                        className='nav-close'
+                        data-bs-toggle='collapse'
+                        data-bs-target='#navbarSupportedContent'
+                        aria-controls='navbarSupportedContent'
+                        aria-expanded='false'
+                        aria-label='Toggle navigation'
+                      >
                         <img src='/images/close.svg' alt='menu' className='img-fluid icon' />
                       </a>
                     </li>
 
                     <li className='d-block d-sm-block d-md-block d-lg-none'>
                       <div className='searchbar_sidebar'>
-                        <form className='d-flex' role='search'>
-                          <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
+                        <form
+                          className='d-flex'
+                          role='search'
+                          onSubmit={e => {
+                            e.preventDefault()
+                            if (query) {
+                              router.push(`/search/${query}`)
+                              setQuery('')
+                            }
+                          }}
+                        >
+                          <input
+                            value={query}
+                            onChange={e => setQuery(e.target.value)}
+                            className='form-control me-2'
+                            type='search'
+                            placeholder='Search'
+                            aria-label='Search'
+                          />
                           <button className='sucess_btn' type='submit'>
                             <img src='/images/search.svg' alt='menu' className='img-fluid icon' />
                           </button>
@@ -271,7 +328,7 @@ const Navbar = () => {
                       </li> */}
                       <li>
                         <div className='usd_currency dropdown'>
-                          <button
+                          {/* <button
                             className='usd_currency-btn dropdown-toggle'
                             type='button'
                             id='dropdownMenu3'
@@ -279,9 +336,9 @@ const Navbar = () => {
                             aria-haspopup='true'
                             aria-expanded='true'
                           >
-                            EURO
+                            EURO */}
                             {/* <img src='/images/down_arrow.svg' alt='menu' className='img-fluid' /> */}
-                          </button>
+                          {/* </button> */}
                           {/* <ul className='dropdown-menu usd-menus' aria-labelledby='dropdownMenu1'>
                             <li>
                               <a onClick={e => e.preventDefault()} href='#'>
