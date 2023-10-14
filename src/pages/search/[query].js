@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import { fakeProducts } from 'src/@core/FakeData'
+
 import BreadCrumb from 'src/@core/components/breadcrumb'
 import FallbackSpinner from 'src/@core/components/spinner'
 import { handleGetAPI } from 'src/api-requests'

@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import React, { Fragment, useEffect, useState } from 'react'
-import { fakeProducts } from 'src/@core/FakeData'
 import BreadCrumb from 'src/@core/components/breadcrumb'
 import FeaturedListCard from 'src/views/pages/product/FeaturedListCard'
 import $ from 'jquery'

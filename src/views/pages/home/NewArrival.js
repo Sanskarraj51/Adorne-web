@@ -1,6 +1,5 @@
 import React from 'react'
 import ArrivalProductCard from '../product/ArrivalProductCard'
-import { fakeProducts } from 'src/@core/FakeData'
 
 const NewArrival = ({ data, mediaUrl }) => {
   return (

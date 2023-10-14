@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { fakeProducts } from 'src/@core/FakeData'
 import BreadCrumb from 'src/@core/components/breadcrumb'
 import { handleGetAPI } from 'src/api-requests'
 import { useAuth } from 'src/hooks/useAuth'
