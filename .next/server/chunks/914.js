@@ -170,14 +170,16 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var src_core_components_icon__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(9878);
 /* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(6201);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([src_core_components_RHF_formProvider__WEBPACK_IMPORTED_MODULE_3__, src_pages_login__WEBPACK_IMPORTED_MODULE_4__, react_hook_form__WEBPACK_IMPORTED_MODULE_6__, _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_7__, src_core_components_RHF_RHFTextField__WEBPACK_IMPORTED_MODULE_8__, src_api_requests__WEBPACK_IMPORTED_MODULE_9__, src_store__WEBPACK_IMPORTED_MODULE_11__, src_store_apps_user__WEBPACK_IMPORTED_MODULE_12__, src_core_components_icon__WEBPACK_IMPORTED_MODULE_18__, react_hot_toast__WEBPACK_IMPORTED_MODULE_19__]);
-([src_core_components_RHF_formProvider__WEBPACK_IMPORTED_MODULE_3__, src_pages_login__WEBPACK_IMPORTED_MODULE_4__, react_hook_form__WEBPACK_IMPORTED_MODULE_6__, _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_7__, src_core_components_RHF_RHFTextField__WEBPACK_IMPORTED_MODULE_8__, src_api_requests__WEBPACK_IMPORTED_MODULE_9__, src_store__WEBPACK_IMPORTED_MODULE_11__, src_store_apps_user__WEBPACK_IMPORTED_MODULE_12__, src_core_components_icon__WEBPACK_IMPORTED_MODULE_18__, react_hot_toast__WEBPACK_IMPORTED_MODULE_19__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _iconify_react__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(5566);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([src_core_components_RHF_formProvider__WEBPACK_IMPORTED_MODULE_3__, src_pages_login__WEBPACK_IMPORTED_MODULE_4__, react_hook_form__WEBPACK_IMPORTED_MODULE_6__, _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_7__, src_core_components_RHF_RHFTextField__WEBPACK_IMPORTED_MODULE_8__, src_api_requests__WEBPACK_IMPORTED_MODULE_9__, src_store__WEBPACK_IMPORTED_MODULE_11__, src_store_apps_user__WEBPACK_IMPORTED_MODULE_12__, src_core_components_icon__WEBPACK_IMPORTED_MODULE_18__, react_hot_toast__WEBPACK_IMPORTED_MODULE_19__, _iconify_react__WEBPACK_IMPORTED_MODULE_20__]);
+([src_core_components_RHF_formProvider__WEBPACK_IMPORTED_MODULE_3__, src_pages_login__WEBPACK_IMPORTED_MODULE_4__, react_hook_form__WEBPACK_IMPORTED_MODULE_6__, _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_7__, src_core_components_RHF_RHFTextField__WEBPACK_IMPORTED_MODULE_8__, src_api_requests__WEBPACK_IMPORTED_MODULE_9__, src_store__WEBPACK_IMPORTED_MODULE_11__, src_store_apps_user__WEBPACK_IMPORTED_MODULE_12__, src_core_components_icon__WEBPACK_IMPORTED_MODULE_18__, react_hot_toast__WEBPACK_IMPORTED_MODULE_19__, _iconify_react__WEBPACK_IMPORTED_MODULE_20__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
 
 
 // ** Third Party Imports
+
 
 
 
@@ -475,6 +477,49 @@ const Addresses = ({ place ="profile" , selected , setSelected , closeModal , po
                                 ]
                             })
                         })
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h6", {
+                        style: {
+                            color: "#86533C"
+                        },
+                        className: "w-100",
+                        children: "Payment is Under Development. Kindly place Order using Whatsapp and Instragram"
+                    }),
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: "d-flex ",
+                        children: [
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                target: "_blank",
+                                href: "https://wa.me/+31633386607",
+                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_16__.IconButton, {
+                                    sx: {
+                                        bgcolor: "#0cc144",
+                                        borderRadius: "4px",
+                                        marginRight: "5px"
+                                    },
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_iconify_react__WEBPACK_IMPORTED_MODULE_20__.Icon, {
+                                        color: "white",
+                                        icon: "mdi:whatsapp"
+                                    })
+                                })
+                            }),
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                className: "footer-hiring-btn2",
+                                target: "_blank",
+                                href: "https://www.instagram.com/contact_adorne/",
+                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_16__.IconButton, {
+                                    sx: {
+                                        bgcolor: "white",
+                                        borderRadius: "4px",
+                                        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+                                    },
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                                        alt: "",
+                                        src: "/images/instagram.png"
+                                    })
+                                })
+                            })
+                        ]
                     })
                 ]
             }) : /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {

@@ -1029,6 +1029,12 @@ display: none;
 }
 
 @media (max-width: 575.98px) {
+	.credit_cards ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+	}
 	.banner_green, .banner_blue {
 		min-height: auto;
 	}

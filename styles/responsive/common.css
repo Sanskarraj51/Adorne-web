@@ -1308,7 +1308,7 @@ a.btn.notify_btn span {
   position: relative;
 }
 
-.subscribe-field::before {
+/* .subscribe-field::before {
   background-image: url('/images/subscribe2.png');
   position: absolute;
   content: '';
@@ -1318,7 +1318,7 @@ a.btn.notify_btn span {
   background-repeat: no-repeat;
   right: -192px;
   top: -38px;
-}
+} */
 
 .btn-subscribe {
   background-image: url('/images/subscribe.png');
@@ -1332,7 +1332,7 @@ a.btn.notify_btn span {
   top: 6px;
 }
 
-.subscribe-text::before {
+/* .subscribe-text::before {
   background-image: url('/images/subscribe1.png');
   position: absolute;
   content: '';
@@ -1342,7 +1342,7 @@ a.btn.notify_btn span {
   background-repeat: no-repeat;
   left: -192px;
   top: -16px;
-}
+} */
 
 .subscribe-text {
   position: relative;
@@ -1369,6 +1369,15 @@ h5.footer-headings {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 1.5rem;
+}
+ul.contact-information{
+  padding-left: 0px;
+}
+ul.contact-information figure{
+  margin-bottom: 0px;
+}
+ul.contact-information li{
+  padding-bottom: 0.8rem;
 }
 
 ul.contact-information li span {

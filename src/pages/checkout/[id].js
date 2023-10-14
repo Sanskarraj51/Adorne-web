@@ -1,3 +1,5 @@
+import { Icon } from '@iconify/react'
+import { IconButton } from '@mui/material'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -44,7 +46,7 @@ const Checkout = () => {
     let bodyData = {
       user_id: id,
       total: store?.cartData?.total,
-      shipping_id:selectedAdd?.id
+      shipping_id: selectedAdd?.id
     }
 
     const res = await handlePostAPI('/orders/place-order', bodyData, 'Order Placed Successfully')
@@ -91,16 +93,43 @@ const Checkout = () => {
                 </a>
               </div>
               <div class='row justify-content-start'>
+                    <h6 style={{ color: '#86533C' }} className='w-100'>
+                      Payment is Under Development. Kindly place Order using Whatsapp and Instragram
+                    </h6>
+
+                    <div className='d-flex '>
+                      <a target='_blank' href='https://wa.me/+31633386607'>
+                        <IconButton sx={{ bgcolor: '#0cc144', borderRadius: '4px', marginRight: '5px' }}>
+                          <Icon color='white' icon='mdi:whatsapp' />
+                        </IconButton>
+                      </a>
+                      <a
+                        className='footer-hiring-btn2'
+                        target='_blank'
+                        href='https://www.instagram.com/contact_adorne/'
+                      >
+                        <IconButton
+                          sx={{
+                            bgcolor: 'white',
+                            borderRadius: '4px',
+
+                            boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
+                          }}
+                        >
+                          <img alt='' src='/images/instagram.png' />
+                        </IconButton>
+                      </a>
+                    </div>
                 <div class='col-lg-6 col-md-6 col-sm-12'>
                   <div class='choose-payment-method'>
-                    <div class='saved-address-manual'>
+                    {/* <div class='saved-address-manual'>
                       <div class='label-tags'>
                         <p>
                           <input type='radio' id='test1' name='radio-group' checked />
                           <label for='test1'>COD</label>
                         </p>
                       </div>
-                    </div>
+                    </div> */}
                     {/* <div class='card-labels'>
                       <ul>
                         <li>
@@ -162,7 +191,7 @@ const Checkout = () => {
                       </div>
                     </div> */}
 
-                    <div class='other-option'>
+                    {/* <div class='other-option'>
                       <div class='label-tags'>
                         <p>
                           <input type='radio' id='test1' name='radio-group' />
@@ -173,7 +202,7 @@ const Checkout = () => {
                           <label for='test1'>Cash on Delivery</label>
                         </p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -224,9 +253,9 @@ const Checkout = () => {
                   <Link href='/' class='btn gradiant_button'>
                     Continue Shopping
                   </Link>
-                  <a role='button' onClick={checkout} class='btn primary-button'>
+                  <button role='button' disabled onClick={checkout} class='btn primary-button'>
                     Place Order
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

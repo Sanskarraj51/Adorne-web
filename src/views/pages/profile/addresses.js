@@ -15,10 +15,11 @@ import { fetchAddress } from 'src/store/apps/user'
 import FallbackSpinner from 'src/@core/components/spinner'
 import { useRouter } from 'next/router'
 import auth from 'src/configs/auth'
-import { Chip, CircularProgress } from '@mui/material'
+import { Chip, CircularProgress, IconButton } from '@mui/material'
 import $ from 'jquery'
 import IconifyIcon from 'src/@core/components/icon'
 import toast from 'react-hot-toast'
+import { Icon } from '@iconify/react'
 
 const defaultValues = {
   isDefault: 1,
@@ -334,6 +335,34 @@ const Addresses = ({ place = 'profile', selected, setSelected, closeModal, popup
               <h3>Payment Mode</h3>
             </div>
           </div> */}
+
+<h6 style={{ color: '#86533C' }} className='w-100'>
+                      Payment is Under Development. Kindly place Order using Whatsapp and Instragram
+                    </h6>
+
+                    <div className='d-flex '>
+                      <a target='_blank' href='https://wa.me/+31633386607'>
+                        <IconButton sx={{ bgcolor: '#0cc144', borderRadius: '4px', marginRight: '5px' }}>
+                          <Icon color='white' icon='mdi:whatsapp' />
+                        </IconButton>
+                      </a>
+                      <a
+                        className='footer-hiring-btn2'
+                        target='_blank'
+                        href='https://www.instagram.com/contact_adorne/'
+                      >
+                        <IconButton
+                          sx={{
+                            bgcolor: 'white',
+                            borderRadius: '4px',
+
+                            boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
+                          }}
+                        >
+                          <img alt='' src='/images/instagram.png' />
+                        </IconButton>
+                      </a>
+                    </div>
         </div>
       ) : (
         <div className='tab-pane fade' id='v-pills-messages' role='tabpanel' aria-labelledby='v-pills-messages-tab'>
