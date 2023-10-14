@@ -11,7 +11,7 @@ import Addresses from 'src/views/pages/profile/addresses'
 
 // ** Third Party Imports
 import * as yup from 'yup'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { phoneRegExp } from 'src/views/pages/login'
 

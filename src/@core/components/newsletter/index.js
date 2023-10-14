@@ -22,14 +22,14 @@ const NewsLetter = () => {
   }
 
   return (
-    <div class='subscribe-newsletter'>
-      <div class='container'>
-        <div class='subscription'>
-          <div class='subscribe-text'>
+    <div className='subscribe-newsletter'>
+      <div className='container'>
+        <div className='subscription'>
+          <div className='subscribe-text'>
             <h4>Subscribe to Our Newsletter</h4>
             <p>Be the first to know about new arrivals + special offers</p>
           </div>
-          <div class='subscribe-field'>
+          <div className='subscribe-field'>
             <form onSubmit={handleSubmit}>
               <input
                 value={email}
@@ -38,9 +38,9 @@ const NewsLetter = () => {
                 id='email'
                 name='email'
                 placeholder='test@example.com'
-                class='subscription-email'
+                className='subscription-email'
               />
-              <input type='submit' class='btn-subscribe' value='' />
+              <input type='submit' className='btn-subscribe' value='' />
             </form>
           </div>
         </div>

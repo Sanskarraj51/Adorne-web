@@ -35,17 +35,17 @@ const ConfirmModal = ({ open , handleClose , deleteFunction , loading  })=>{
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_1__.DialogTitle, {
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                    class: "modal-header",
+                    className: "modal-header",
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
-                            class: "modal-title fs-5",
+                            className: "modal-title fs-5",
                             id: "staticBackdropLabel",
                             children: "Are you Sure?"
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
                             type: "button",
                             onClick: handleClose,
-                            class: "btn-close",
+                            className: "btn-close",
                             "aria-label": "Close"
                         })
                     ]
@@ -53,25 +53,25 @@ const ConfirmModal = ({ open , handleClose , deleteFunction , loading  })=>{
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_1__.DialogContent, {
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                    class: " address-modal",
+                    className: " address-modal",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        class: "modal-dialog",
+                        className: "modal-dialog",
                         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                            class: "modal-content",
+                            className: "modal-content",
                             children: [
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                    class: "modal-body",
+                                    className: "modal-body",
                                     children: "This is delete permantely. Please make sure you want to delete this."
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                    class: "modal-footer",
+                                    className: "modal-footer",
                                     children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                        class: "checkout",
+                                        className: "checkout",
                                         children: [
                                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                                                 role: "button",
                                                 onClick: deleteFunction,
-                                                class: "btn gradiant_button",
+                                                className: "btn gradiant_button",
                                                 children: [
                                                     loading ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_1__.CircularProgress, {
                                                         size: 30,
@@ -83,7 +83,7 @@ const ConfirmModal = ({ open , handleClose , deleteFunction , loading  })=>{
                                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                                 role: "button",
                                                 onClick: handleClose,
-                                                class: "btn primary-button",
+                                                className: "btn primary-button",
                                                 children: "Cancel"
                                             })
                                         ]

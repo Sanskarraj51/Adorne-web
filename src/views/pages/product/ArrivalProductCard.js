@@ -37,9 +37,9 @@ const ArrivalProductCard = ({ item, mediaUrl }) => {
 
   // eslint-disable-next-line
   return (
-    <div class='bg_white'>
-      <div class='arrivals_products new_product '>
-        <div class='sale_button'>On Sale Product </div>
+    <div className='bg_white'>
+      <div className='arrivals_products new_product '>
+        <div className='sale_button'>On Sale Product </div>
         <Link href={`/product-detail/${item?.id}`} className='arrivals_product new_product_img'>
           <img
             src={
@@ -53,10 +53,10 @@ const ArrivalProductCard = ({ item, mediaUrl }) => {
           />
         </Link>
       </div>
-      <div class='arriavls-product-details new_product_detail'>
+      <div className='arriavls-product-details new_product_detail'>
         <Link href={`/product-detail/${item?.id}`}>{item?.name || 'Amazing jewellery collection'}</Link>
 
-        <div class='price_listing'>
+        <div className='price_listing'>
           {/* <s>$500.00</s> */}
           <p>€{item?.price}</p>
         </div>

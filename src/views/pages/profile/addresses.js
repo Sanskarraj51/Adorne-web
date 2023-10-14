@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ConfirmModal from '../common/confirmModal'
 import FormProvider from 'src/@core/components/RHF/formProvider'
-import { phoneRegExp } from 'src/pages/login'
+
 
 // ** Third Party Imports
 import * as yup from 'yup'
@@ -20,6 +20,7 @@ import $ from 'jquery'
 import IconifyIcon from 'src/@core/components/icon'
 import toast from 'react-hot-toast'
 import { Icon } from '@iconify/react'
+import { phoneRegExp } from '../login'
 
 const defaultValues = {
   isDefault: 1,

@@ -14,19 +14,19 @@ exports.modules = {
 
 const Support = ()=>{
     return /*#__PURE__*/ _jsxs("div", {
-        class: "online_support_row row",
+        className: "online_support_row row",
         children: [
             /*#__PURE__*/ _jsx("div", {
-                class: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
+                className: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
                 children: /*#__PURE__*/ _jsx("div", {
-                    class: "support_fields_container",
+                    className: "support_fields_container",
                     children: /*#__PURE__*/ _jsx("ul", {
                         children: /*#__PURE__*/ _jsxs("li", {
                             children: [
                                 /*#__PURE__*/ _jsx("span", {
                                     children: /*#__PURE__*/ _jsx("img", {
                                         src: "/images/service-1.svg",
-                                        class: "img-fluid",
+                                        className: "img-fluid",
                                         alt: ""
                                     })
                                 }),
@@ -41,16 +41,16 @@ const Support = ()=>{
                 })
             }),
             /*#__PURE__*/ _jsx("div", {
-                class: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
+                className: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
                 children: /*#__PURE__*/ _jsx("div", {
-                    class: "support_fields_container",
+                    className: "support_fields_container",
                     children: /*#__PURE__*/ _jsx("ul", {
                         children: /*#__PURE__*/ _jsxs("li", {
                             children: [
                                 /*#__PURE__*/ _jsx("span", {
                                     children: /*#__PURE__*/ _jsx("img", {
                                         src: "/images/service-2.svg",
-                                        class: "img-fluid",
+                                        className: "img-fluid",
                                         alt: ""
                                     })
                                 }),
@@ -65,16 +65,16 @@ const Support = ()=>{
                 })
             }),
             /*#__PURE__*/ _jsx("div", {
-                class: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
+                className: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
                 children: /*#__PURE__*/ _jsx("div", {
-                    class: "support_fields_container",
+                    className: "support_fields_container",
                     children: /*#__PURE__*/ _jsx("ul", {
                         children: /*#__PURE__*/ _jsxs("li", {
                             children: [
                                 /*#__PURE__*/ _jsx("span", {
                                     children: /*#__PURE__*/ _jsx("img", {
                                         src: "/images/service-3.svg",
-                                        class: "img-fluid",
+                                        className: "img-fluid",
                                         alt: ""
                                     })
                                 }),
@@ -89,16 +89,16 @@ const Support = ()=>{
                 })
             }),
             /*#__PURE__*/ _jsx("div", {
-                class: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
+                className: "col-lg-3 col-md-3 col-sm-6 mt-md-0 mb-md-0 mt-sm-3 mb-sm-3",
                 children: /*#__PURE__*/ _jsx("div", {
-                    class: "support_fields_container",
+                    className: "support_fields_container",
                     children: /*#__PURE__*/ _jsx("ul", {
                         children: /*#__PURE__*/ _jsxs("li", {
                             children: [
                                 /*#__PURE__*/ _jsx("span", {
                                     children: /*#__PURE__*/ _jsx("img", {
                                         src: "/images/service-4.svg",
-                                        class: "img-fluid",
+                                        className: "img-fluid",
                                         alt: ""
                                     })
                                 }),

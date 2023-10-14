@@ -4,11 +4,11 @@ import { fakeProducts } from 'src/@core/FakeData'
 
 const NewArrival = ({ data, mediaUrl }) => {
   return (
-    <section class='latest_products'>
-      <div class='container'>
-        <div class='arrivals'>
+    <section className='latest_products'>
+      <div className='container'>
+        <div className='arrivals'>
           <h4>New Arrival</h4>
-          <div class='row'>
+          <div className='row'>
             {data?.slice(0, 4)?.map((item, i) => (
               <div key={i} className='col-lg-3 col-md-6 col-sm-6 mt-4 text-center pt-4 pb-4'>
                 <ArrivalProductCard mediaUrl={mediaUrl} item={item} />

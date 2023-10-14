@@ -17,20 +17,20 @@ const Billing = () => {
     <>
       <BreadCrumb path='Billing Detail' />
 
-      <div class='container mt-4 mb-5'>
-        <div class='row'>
+      <div className='container mt-4 mb-5'>
+        <div className='row'>
           <Addresses setSelected={setSelected} selected={selected} place='billing' />
-          <div class='col-lg-4 col-md-4 col-sm-12'>
-            <div class='cart-page-billing'>
-              <div class='title'>
+          <div className='col-lg-4 col-md-4 col-sm-12'>
+            <div className='cart-page-billing'>
+              <div className='title'>
                 <h3>Order Summary ({store?.cartData?.products?.length || 0})</h3>
               </div>
-              <div class='gift-card-promos'>
-                <div class='subtotal-title'>
+              <div className='gift-card-promos'>
+                <div className='subtotal-title'>
                   <h4>Product</h4>
                   <h4>Subtotal</h4>
                 </div>
-                <div class='subtotal-product-detail'>
+                <div className='subtotal-product-detail'>
                   <ul>
                     {store?.cartData?.products?.map((cart, i) => {
                       let item = cart?.ProductEntity
@@ -44,8 +44,8 @@ const Billing = () => {
                     })}
                   </ul>
                 </div>
-                <div class='cart-additional-detail'></div>
-                <div class='subtotal-payments'>
+                <div className='cart-additional-detail'></div>
+                <div className='subtotal-payments'>
                   <ul>
                     <li>
                       <figure>Subtotal</figure>
@@ -55,14 +55,14 @@ const Billing = () => {
                       <figure>Delievery Charges</figure>
                       <span>${store?.cartData?.shippingCharges || 0}</span>
                     </li>
-                    <li class='final-billing'>
+                    <li className='final-billing'>
                       <figure>Total</figure>
                       <span>${store?.cartData?.total ? store?.cartData?.total : 0}</span>
                     </li>
                   </ul>
                 </div>
-                <div class='checkout btn_group'>
-                  <Link href='/' class='btn gradiant_button'>
+                <div className='checkout btn_group'>
+                  <Link href='/' className='btn gradiant_button'>
                     Continue Shopping
                   </Link>
                   <a
@@ -74,7 +74,7 @@ const Billing = () => {
                       }
                       router.push(`/checkout/${user?.id}`)
                     }}
-                    class='btn primary-button'
+                    className='btn primary-button'
                   >
                     Proceed to Checkout
                   </a>

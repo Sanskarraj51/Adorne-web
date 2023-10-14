@@ -25,17 +25,17 @@ const StarRating = ({ item, id, user,mediaUrl }) => {
   }
 
   return (
-    <div class='row'>
-      <div class='rateing_order_info'>
+    <div className='row'>
+      <div className='rateing_order_info'>
         <figure>
-          <a class='product-image' href='Producr-details.html'>
+          <a className='product-image' href='Producr-details.html'>
             <img
               src={
                 item?.ProductEntity.ProductImageEntities?.length
                   ? `${mediaUrl}${item?.ProductEntity?.ProductImageEntities[0]?.key}`
                   : `/images/east-1.jpg`
               }
-              class='img-fluid'
+              className='img-fluid'
               alt=''
             />
           </a>
@@ -43,12 +43,12 @@ const StarRating = ({ item, id, user,mediaUrl }) => {
         <span>
           <h4>{item?.ProductEntity?.name || ''}</h4>
           <p>
-            Product Code: <span class='product-code'>{item?.ProductEntity?.sku_id || ''}</span>
+            Product Code: <span className='product-code'>{item?.ProductEntity?.sku_id || ''}</span>
           </p>
         </span>
       </div>
-      <div class='rate_order'>
-        <div class='total_rating'>
+      <div className='rate_order'>
+        <div className='total_rating'>
           <h5>Overall Rating</h5>
           <div className='star-rating'>
             {[...Array(5)].map((star, index) => {
@@ -68,7 +68,7 @@ const StarRating = ({ item, id, user,mediaUrl }) => {
               )
             })}
           </div>
-        <a role='button' onClick={saveRating} class='btn gradiant_button'>
+        <a role='button' onClick={saveRating} className='btn gradiant_button'>
           {loading ? <CircularProgress size={30} color='inherit' /> : 'Submit'}{' '}
         </a>
         </div>
@@ -115,7 +115,7 @@ const Ratings = () => {
   return (
     <>
       <BreadCrumb path='Ratings' />
-      <div class='container mt-4 mb-5'>
+      <div className='container mt-4 mb-5'>
         {data?.OrderitemEntities?.map((item, i) => (
           <StarRating key={i} item={item} id={id} user={user?.id} mediaUrl={mediaUrl} />
         ))}

@@ -15,24 +15,24 @@ const ConfirmModal = ({ open, handleClose, deleteFunction, loading }) => {
       aria-describedby='alert-dialog-slide-description'
     >
       <DialogTitle>
-        <div class='modal-header'>
-          <h1 class='modal-title fs-5' id='staticBackdropLabel'>
+        <div className='modal-header'>
+          <h1 className='modal-title fs-5' id='staticBackdropLabel'>
             Are you Sure?
           </h1>
-          <button type='button' onClick={handleClose} class='btn-close' aria-label='Close'></button>
+          <button type='button' onClick={handleClose} className='btn-close' aria-label='Close'></button>
         </div>
       </DialogTitle>
       <DialogContent>
-        <div class=' address-modal'>
-          <div class='modal-dialog'>
-            <div class='modal-content'>
-              <div class='modal-body'>This is delete permantely. Please make sure you want to delete this.</div>
-              <div class='modal-footer'>
-                <div class='checkout'>
-                  <a role='button' onClick={deleteFunction} class='btn gradiant_button'>
+        <div className=' address-modal'>
+          <div className='modal-dialog'>
+            <div className='modal-content'>
+              <div className='modal-body'>This is delete permantely. Please make sure you want to delete this.</div>
+              <div className='modal-footer'>
+                <div className='checkout'>
+                  <a role='button' onClick={deleteFunction} className='btn gradiant_button'>
                     {loading ? <CircularProgress size={30} color='inherit' /> : 'Delete'}{' '}
                   </a>
-                  <a role='button' onClick={handleClose} class='btn primary-button'>
+                  <a role='button' onClick={handleClose} className='btn primary-button'>
                     Cancel
                   </a>
                 </div>

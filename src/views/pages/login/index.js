@@ -1,26 +1,13 @@
 // ** React Imports
 import { useState } from 'react'
-
-// ** Next Imports
-import Box from '@mui/material/Box'
-import useMediaQuery from '@mui/material/useMediaQuery'
-import MuiLink from '@mui/material/Link'
-
-import { styled, useTheme } from '@mui/material/styles'
-
-// ** Third Party Imports
 import * as yup from 'yup'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import FormProvider from 'src/@core/components/RHF/formProvider'
 import RHFTextField from 'src/@core/components/RHF/RHFTextField'
 
 // ** Hooks
 import { useAuth } from 'src/hooks/useAuth'
-import useBgColor from 'src/@core/hooks/useBgColor'
-import { useSettings } from 'src/@core/hooks/useSettings'
-
-import BreadCrumb from 'src/@core/components/breadcrumb'
 import { doNothing, handlePostAPI } from 'src/api-requests'
 import auth from 'src/configs/auth'
 import { useRouter } from 'next/router'

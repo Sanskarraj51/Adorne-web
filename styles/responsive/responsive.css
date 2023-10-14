@@ -690,7 +690,7 @@ min-width: 250px;
 
 	a.nav-close {
 		padding: 0 !important;
-		justify-content: end !important;
+		justify-content: flex-end !important;
 	}
 
 	a.nav-close span {
@@ -856,7 +856,7 @@ min-width: 250px;
 
 	.topbar_colum {
 		justify-content: flex-end;
-		align-items: end;
+		align-items: flex-end;
 	}
 
 	ul.login-register {

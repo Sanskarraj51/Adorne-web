@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { fakeProducts } from 'src/@core/FakeData'
 import BreadCrumb from 'src/@core/components/breadcrumb'
+import FallbackSpinner from 'src/@core/components/spinner'
 import { handleGetAPI } from 'src/api-requests'
 import auth from 'src/configs/auth'
 import { useDispatch, useSelector } from 'src/store'
@@ -12,6 +13,7 @@ const SearchPage = () => {
   const [selectedColor, setSelectedColor] = useState([])
   const [selectedPrice, setSelectedPrice] = useState([])
   const [selectedBrand, setSelectedBrand] = useState([])
+  const [loading, setLoading] = useState(false)
   const [allProducts, setAllProducts] = useState([])
   const router = useRouter()
   const { query } = router?.query
@@ -27,10 +29,12 @@ const SearchPage = () => {
   }, [dispatch])
 
   async function searchAllProducts() {
+    setLoading(true)
     let res = await handleGetAPI(auth.productSearch + query)
     if (res) {
       setAllProducts(res?.data)
     }
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -38,6 +42,10 @@ const SearchPage = () => {
       searchAllProducts()
     }
   }, [query])
+
+  if (loading) {
+    return <FallbackSpinner />
+  }
 
   // eslint-disable-next-line
   return (
@@ -237,21 +245,21 @@ const SearchPage = () => {
                     </p>
                   </div>
                 </div>
-                {/* <div class='col-lg-5 col-md-6 col-sm-12'>
-                  <div class='sort-by'>
-                    <div class='custom-select flex-grow-1 position-relative'>
+                {/* <div className='col-lg-5 col-md-6 col-sm-12'>
+                  <div className='sort-by'>
+                    <div className='custom-select flex-grow-1 position-relative'>
                       <label for='sortBy'>Sort By</label>
-                      <div class='input-wrap position-relative' id='inputWrap'>
-                        <input type='text' placeholder='Newest' readonly class='border-0 p-2 w-100' />
+                      <div className='input-wrap position-relative' id='inputWrap'>
+                        <input type='text' placeholder='Newest' readonly className='border-0 p-2 w-100' />
                       </div>
                       <div
-                        class='option d-none bg-white border border-dark border-top-0 position-absolute top-100 w-100'
+                        className='option d-none bg-white border border-dark border-top-0 position-absolute top-100 w-100'
                         id='option'
                       >
-                        <p class='mb-0 px-2 py-2'>Default</p>
-                        <p class='mb-0 px-2 py-2'>Newest</p>
-                        <p class='mb-0 px-2 py-2'>Price (Low to High)</p>
-                        <p class='mb-0 px-2 py-2'>Price (High to Low)</p>
+                        <p className='mb-0 px-2 py-2'>Default</p>
+                        <p className='mb-0 px-2 py-2'>Newest</p>
+                        <p className='mb-0 px-2 py-2'>Price (Low to High)</p>
+                        <p className='mb-0 px-2 py-2'>Price (High to Low)</p>
                       </div>
                     </div>
                   </div>

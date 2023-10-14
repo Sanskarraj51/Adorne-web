@@ -29,7 +29,6 @@ const Home = () => {
     return <FallbackSpinner />
   }
 
-  console.log('store?.home', store?.home)
 
   return (
     <>
