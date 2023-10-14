@@ -38,7 +38,7 @@ const Billing = () => {
                       return (
                         <li key={i}>
                           <figure>{item?.name || ''}</figure>
-                          <span>${Number(item?.price) * cart?.quantity}</span>
+                          <span>€{Number(item?.price) * cart?.quantity}</span>
                         </li>
                       )
                     })}
@@ -49,15 +49,15 @@ const Billing = () => {
                   <ul>
                     <li>
                       <figure>Subtotal</figure>
-                      <span>${store?.cartData?.total ? store?.cartData?.total : 0}</span>
+                      <span>€{store?.cartData?.total ? store?.cartData?.total : 0}</span>
                     </li>
                     <li>
                       <figure>Delievery Charges</figure>
-                      <span>${store?.cartData?.shippingCharges || 0}</span>
+                      <span>€{store?.cartData?.shippingCharges || 0}</span>
                     </li>
                     <li className='final-billing'>
                       <figure>Total</figure>
-                      <span>${store?.cartData?.total ? store?.cartData?.total : 0}</span>
+                      <span>€{store?.cartData?.total ? store?.cartData?.total : 0}</span>
                     </li>
                   </ul>
                 </div>

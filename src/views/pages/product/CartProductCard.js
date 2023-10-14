@@ -81,7 +81,7 @@ const CartProductCard = ({ cart, mediaUrl, getCart,openDelete }) => {
           </div>
         </form>
       </td>
-      <td className='subtotal-price'>${Number(item?.price) * qty}</td>
+      <td className='subtotal-price'>€{Number(item?.price) * qty}</td>
       <td className='remove-item'>
         <a role='button' onClick={() => openDelete(cart?.id, 'cart')}>
           <img src='/images/ic_delete.svg' alt='delete' className='img-fluid' />

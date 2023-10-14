@@ -100,15 +100,15 @@ const Cart = () => {
                       <ul>
                         <li>
                           <figure>Subtotal</figure>
-                          <span>${store?.cartData?.total || 0}</span>
+                          <span>€{store?.cartData?.total || 0}</span>
                         </li>
                         <li>
                           <figure>Shipping</figure>
-                          <span>${store?.cartData?.shippingCharges || 0}</span>
+                          <span>€{store?.cartData?.shippingCharges || 0}</span>
                         </li>
                         <li className='final-billing'>
                           <figure>Total</figure>
-                          <span>${store?.cartData?.total || 0}</span>
+                          <span>€{store?.cartData?.total || 0}</span>
                         </li>
                       </ul>
                     </div>

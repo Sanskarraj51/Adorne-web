@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/bW-4pxyyfLDd-HxhXvE7f/_buildManifest.js",
-    "static/bW-4pxyyfLDd-HxhXvE7f/_ssgManifest.js"
+    "static/kQQK7y7J873VcP01aF6H4/_buildManifest.js",
+    "static/kQQK7y7J873VcP01aF6H4/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -60,7 +60,7 @@
       "static/chunks/main-81fa9cced5cdea31.js",
       "static/chunks/378-6aa80ca92fef1f95.js",
       "static/chunks/849-a52788a8883563ed.js",
-      "static/chunks/pages/billing/[id]-aed5ed6fb75007fb.js"
+      "static/chunks/pages/billing/[id]-c85124a8c582b50d.js"
     ],
     "/blogs": [
       "static/chunks/webpack-36d12a75f0098f30.js",
@@ -79,7 +79,7 @@
       "static/chunks/webpack-36d12a75f0098f30.js",
       "static/chunks/framework-2c79e2a64abdb08b.js",
       "static/chunks/main-81fa9cced5cdea31.js",
-      "static/chunks/pages/cart-bcd71b489c428636.js"
+      "static/chunks/pages/cart-4f6a5436181724c6.js"
     ],
     "/checkout/[id]": [
       "static/chunks/webpack-36d12a75f0098f30.js",
@@ -87,7 +87,7 @@
       "static/chunks/main-81fa9cced5cdea31.js",
       "static/chunks/378-6aa80ca92fef1f95.js",
       "static/chunks/849-a52788a8883563ed.js",
-      "static/chunks/pages/checkout/[id]-e5c6b4c975b03c1f.js"
+      "static/chunks/pages/checkout/[id]-112b6eb14c067eeb.js"
     ],
     "/confirm-order/[id]": [
       "static/chunks/webpack-36d12a75f0098f30.js",
