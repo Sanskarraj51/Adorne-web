@@ -29,8 +29,10 @@ const SearchPage = () => {
   }, [dispatch])
 
   async function searchAllProducts() {
+    let val = query.slice(0, query.indexOf(' '))
+
     setLoading(true)
-    let res = await handleGetAPI(auth.productSearch + query)
+    let res = await handleGetAPI(auth.productSearch + val)
     if (res) {
       setAllProducts(res?.data)
     }
