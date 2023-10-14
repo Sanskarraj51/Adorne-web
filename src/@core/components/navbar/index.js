@@ -54,10 +54,6 @@ const Navbar = () => {
     dispatch(fetchCategoryData())
   }, [])
 
-  useOnClickOutside(navRef,()=>{
-    closeBtn.current.click()
-  })
-  
 
   return (
     <header>
